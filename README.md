@@ -1,6 +1,6 @@
 # Toode -- UrbanStyle.ltd Andmemeeskond
    ## Meeskonnaliikmed
-   | Ivo Murel | Roll (Nädal 1) | Win |
+   | Ivo Murel | Juht (Nädal 1) | Win |
    | Kertu Läänemägi | A: Data Extraction | Win |
    | Helen Starodubtseva | B: Data Processing | Win |
    ## Meie eesmärk
