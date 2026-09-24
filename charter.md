@@ -24,6 +24,12 @@
 * **Nädal 2:** Juht = Helen Starodubtseva | Navigaator = Ivo Murel | Navigaator = Kertu Läänemägi
 * **Nädal 3:** Juht = Kertu Läänemägi | Navigaator = Helen Starodubtseva | Navigaator = Ivo Murel
 * **Nädal 4:** Juht = Ivo Murel | Navigaator = Kertu Läänemägi | Navigaator = Helen Starodubtseva
+* **Nädal 5:** Juht = Helen Starodubtseva | Navigaator = Ivo Murel | Navigaator = Kertu Läänemägi
+* **Nädal 6:** Juht = Kertu Läänemägi | Navigaator = Helen Starodubtseva | Navigaator = Ivo Murel
+* **Nädal 7:** Juht = Ivo Murel | Navigaator = Kertu Läänemägi | Navigaator = Helen Starodubtseva
+* **Nädal 8:** Juht = Helen Starodubtseva | Navigaator = Ivo Murel | Navigaator = Kertu Läänemägi
+* **Nädal 9:** Juht = Kertu Läänemägi | Navigaator = Helen Starodubtseva | Navigaator = Ivo Murel
+* **Nädal 10:** Juht= Ivo Murel | Navigaator = Kertu Läänemägi | Navigaator = Helen Starodubtseva
   
 ## ALLKIRJAD: 
 1. Ivo Murel  
