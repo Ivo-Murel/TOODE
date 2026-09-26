@@ -50,3 +50,9 @@ Roll: Haldab tarneahelat, laovarusid, logistikat ning poe- ja e-kaubanduse opera
 .
 Fookus: Otsib alati praktilisi ja rakendatavaid lahendusi, mis aitavad igapäevatööd sujuvamaks muuta, eelistades lihtsat keelt ja selgeid tegevusplaane
 .
+## ALLKIRJAD: 
+1. Helen Starodubtseva   
+2. Kertu Läänemägi  
+3. Ivo Murel
+
+**KUUPÄEV:** 2026-09-23
