@@ -1,1 +1,94 @@
+SELECT * FROM products LIMIT 10;
 
+SELECT distinct products FROM products  -- näitab toodete koguarvu ja nende nimetusi 362 toodet
+
+SELECT COUNT(*) AS toodete_arv FROM products; --näitab toodete koguarvu ühe numbriga 362 toodet
+
+SELECT DISTINCT category FROM products; -- näitab mitu erinevat tootekategooriat on kokku
+
+-- 10 kalleimat toodet
+SELECT product_name, category, retail_price
+FROM products
+ORDER BY retail_price DESC
+LIMIT 10;
+
+-- 10 odavamat toodet
+SELECT product_name, category, retail_price
+FROM products
+ORDER BY retail_price ASC
+LIMIT 10;
+
+-- Näiteks: kõik kindla kategooria tooted
+SELECT * FROM products
+WHERE category = 'naiste_riided'
+ORDER BY retail_price DESC;
+
+--kindla kategooria tooted
+SELECT * FROM products
+WHERE category = 'meeste_riided'
+ORDER BY retail_price DESC;
+
+--kindla kategooria tooted
+SELECT * FROM products
+WHERE category = 'jalanõusid'
+ORDER BY retail_price DESC;
+
+--kindla kategooria tooted
+SELECT * FROM products
+WHERE category = 'laste_riided'
+ORDER BY retail_price DESC;
+
+--kindla kategooria tooted
+SELECT * FROM products
+WHERE category = 'aksessuaarid'
+ORDER BY retail_price asc;
+
+--kategooria tooted, aga millel on puudu eco_certified informatsioon - vastus 18
+SELECT COUNT(category) 
+FROM products
+Where eco_certified is null
+
+--sama asi mis eelmine aga sisaldab kõiki ridu tooted, millel on puudu eco_certified informatsioon - kokku 10 toodet 
+SELECT *
+FROM products
+Where eco_certified is null
+
+-- Puuduvad hinnad
+SELECT COUNT(*) - COUNT(retail_price) AS puuduvad_hinnad
+FROM products;
+
+-- Puuduvad kategooriad
+SELECT COUNT(*) - COUNT(category) AS puuduvad_kategooriad
+FROM products;
+
+--●	Loe tooted kategooriati kokku:
+SELECT category, COUNT(*) AS toodete_arv
+FROM products
+GROUP BY category
+ORDER BY toodete_arv DESC;
+
+--●	Leia keskmised hinnad kategooriati
+SELECT category,
+       COUNT(*) AS toodete_arv,
+       MIN(retail_price) AS min_hind,
+       MAX(retail_price) AS max_hind
+FROM products
+GROUP BY category
+ORDER BY max_hind DESC;
+
+
+SELECT category, COUNT(*) AS toodete_arv
+FROM products
+GROUP BY category
+ORDER BY toodete_arv DESC;
+
+--	Kombineeri tingimused: Leia tooted, mille hind on üle 50 EUR konkreetses kategoorias:
+SELECT * FROM products
+WHERE retail_price > 50 AND category = 'jalanõusid'
+ORDER BY retail_price DESC;
+
+--Mis kategooria all on kõige rohkem raha kinni
+SELECT category, SUM(cost_price) AS kokku_omahind 
+FROM products 
+GROUP BY category 
+ORDER BY kokku_omahind DESC;
