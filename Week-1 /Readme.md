@@ -21,7 +21,7 @@ Kategooriad jagunevad järgmiselt:
 ■	aksessuaarid(67 rida), 
 ■	naisteriided (70 rida)
 ■	meesteriided(82rida), 
-Kõige kallim toode on sporditossud 434,08€ ning kõige odavam toode on village kangasvöö, mis maksab 13,53€. Kõige rohkem raha on laos “kinni” jalanõude all 10551€ 
+Kõige kallim toode on sporditossud 434,08€ ning kõige odavam toode on village kangasvöö, mis maksab 13,53€. 
 Seejuures 18 tootel on öko-sertifikaadi väärtus on NULL, põhjus vajaks täpsustamist.  
 
 5 koodi mida kasutasin
