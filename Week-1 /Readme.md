@@ -106,7 +106,7 @@ Uurisin customer tabelit.
 - customer tabelis on kokku 3150 kliendirida.
 - esimene klient registreeriti 02.01.2020 ja uusim 27.02.2025.
 - 380 real puudus kliendi email ja 510 rida on duplikaati (emaili päring).
-- Linna andmetes on suur segadus, plaju erineva kirjapildiga samu asukohti
+- Linna andmetes on suur segadus, palju erineva kirjapildiga samu asukohti
 
 ### Soovitus Toomasele
 Kliendiandmete paremaks analüüsimiseks tuleb teha andmestikus korrastusi ning pöörata tähelepanu puuduvatele andmetele ja duplikaatidele. 
