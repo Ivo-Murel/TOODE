@@ -1,1 +1,57 @@
+-- Mitu klienti on kokku? Vastus: Andmebaasis on 3150 kliendirida.
+select count (*) as klientide_arv from customers;
+
+-- Millised veerud ja andmed on tabelis? Vastus: Tabeli on 9 veergu. 
+Select * from customers limit 10;
+
+-- Millistest linnadest on kliendid ? Vastus: kliente on üle eesti erinevatest linnadest.  Palju duplikaate, sest linnade nimed on erineva kirjapildiga. 
+select distinct city from customers;
+
+-- Filtreeri kindla linna kliendid
+select * from customers where city= 'Tallinn' order by last_name asc limit 15;
+
+-- Kontrolli registreerimise kuupäevi.  Millal registreeriti esimene ja viimane klient? (esimese rea koma on oluline, muidu on error)
+select min(registration_date) as vanim,
+      max(registration_date) as uusim
+from customers;
+
+-- Mitu klienti, kus eesnimi on puudu? Vastus: o kliendil puudub eesnimi. 
+SELECT COUNT(*) - COUNT(first_name) AS puuduvad_eesnimed
+FROM customers;
+
+
+-- Mitu klienti, kus perenimi on puudu? Vastus: o kliendil puudub perenimi. 
+SELECT COUNT(*) - COUNT(last_name) AS puuduvad_perenimi
+FROM customers;
+
+-- Mitu klienti, kus e-mail on puudu? Vastus: 380 kliendil on puuudu e-maili aadress
+SELECT COUNT(*) - COUNT(email) AS puuduvad_emailid
+FROM customers;
+
+-- Mitu klienti, kus lojaalsustase on puudu? Vastus: 1260 kliendil puudub lojaalsustase. 
+SELECT COUNT(*) - COUNT(loyalty_tier) AS puuduvad_lojaalsustasemed
+FROM customers;
+
+-- Kui palju on duplikaatseid kliente? Vastus: kokku emaile 3150, unikaalseid emaile 2640 - 3150-2640= 510 duplikaati
+SELECT COUNT(*) AS kokku_emaile,
+       COUNT(DISTINCT email) AS unikaalseid_emaile
+FROM customers;
+
+-- Klientide arv linnati? Vastus - antud sql ei sobi lahendamaks probleemi küsimust, linnadel on palju erimevaid kirjapilte
+SELECT city, COUNT(*) AS klientide_arv
+FROM customers
+GROUP BY city
+ORDER BY klientide_arv DESC;
+
+-- Klientide arv linnati, parandatud sql versiooni AI abiga
+select upper(trim(city)) as korrastatud_linn, COUNT(*) as klientide_arv
+from customers
+group by upper(trim(city))
+order by klientide_arv desc
+
+-- Laia uusimad kliendid? Vastus: Viimased kliendid on registreeritud 2025 veebruaris.
+select * from customers
+where registration_date >= '2024-07-01'
+order by registration_date desc limit 10;
+
 
