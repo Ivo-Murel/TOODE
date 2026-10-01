@@ -1,1 +1,36 @@
+-- PÄRING 1/5: Mitu müügirida on sales tabelis kokku?
+SELECT COUNT(*) AS ridade_arv FROM sales;
+-- TULEMUS: sales tabelis on kokku 15 234 müügirida.
+
+
+-- PÄRING 2/5: Näitab sales tabeli esimest 10 rida ja kõiki veerge.
+SELECT * FROM sales LIMIT 10;
+-- TULEMUS: Kuvati 10 esimest müügirida koos sales tabeli veergude ja andmetega.
+
+
+-- PÄRING 3/5: Näitab 15 viimast Tallinna kaupluse müüki.
+SELECT * FROM sales WHERE store_location = 'Tallinn' ORDER BY sale_date DESC LIMIT 15;
+-- TULEMUS: Kuvati 15 viimast Tallinna kaupluse müüki; tulemuste seas esines ka puuduva customer_id-ga müük.
+
+
+-- PÄRING 4/5: Näitab 10 kõige suurema müügisummaga tehingut.
+SELECT * FROM sales ORDER BY total_price DESC LIMIT 10;
+-- TULEMUS: Suurim müügisumma on 2170,40 € ja see esineb tulemuses kahel real.
+
+-- PÄRING 4.1/5: 10 väikseimat tehingut 
+SELECT * FROM sales ORDER BY total_price ASC LIMIT 10;
+-- TULEMUS: Kõik 10 väikseimat tehingut on negatiivse müügisummaga. Kõige väiksem müügisumma on -1405,32 €; nullsummaga tehinguid nende 10 seas ei ole.
+
+
+-- PÄRING 5/5:Mitu rida esineb, kus kliendi info on puudu?
+SELECT COUNT(*) - COUNT(customer_id) AS puuduv_klient FROM sales;
+-- TULEMUS: 1487 müügireal puudub kliendi ID (customer_id).
+
+
+-- KOKKUVÕTE:
+-- sales tabelis on kokku 15 234 müügirida ning tabel sisaldab infot müügitehingute, klientide, toodete, hindade, müügikanalite ja kaupluste kohta.
+-- Tallinna müüke vaadates oli näha ka tehing, millel puudus customer_id.
+-- Kõige suurem müügisumma oli 2170,40 €, samas kui kõige väiksem oli -1405,32 € ning kõik 10 väikseimat tehingut olid negatiivse summaga.
+-- Kokku puudus customer_id 1487 müügireal.
+-- Negatiivsed müügisummad ja puuduv kliendiinfo vajavad edasist kontrollimist.
 
