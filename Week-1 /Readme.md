@@ -1,17 +1,6 @@
---siia lisada mida igaüks tegi ja viimane kustutab ära mittevajalikud lõigud
 
-Oma koodid kopeerime siia, kõik 3 inimest, igaüks oma lõik. 
-3 peamist asja, järeldused/soovitused Toomasele. 
-
-Soovitus toomasele, punkt 3 LK 14
-
-NB! VAADAKE ÜLE SEE MINU SUURIMA ÜLLATUSE LÕIK SIIN MÕNED READ ALLPOOL, MINUL ÜLLATUSI EI OLNUD, SAMUTI ON VAJA KA INFOT NENDE 5116 DUPLIKAADI KOHTA, ET MIS NEED SIIS ON, KAS SEE OLI E-POE MÜÜK? 
---------------------------------------
 Meie grupitöö esitlus - https://docs.google.com/document/d/1-67q0odWr2Sl6yUHkp7SpQoLdLggkgR70ejm7MTvFKc/edit?pli=1&tab=t.0
-
-Selle nädala küsimus: Mitu duplikaati on UrbanStyle'i müügiandmetes tegelikult ja mida need numbrid meile räägivad? Kokku on 5116 duplikaati.
-Suurim üllatus - suurt üllatust ei olnud, pigem on segadus.  
-
+ 
 Ivo Murel
 Analüüsisin Products tabelit
 Kokku on tabelis 5 erinevat tootekategooriat, mis sisaldavad 362 erinevat toodet. 
@@ -39,7 +28,6 @@ SELECT category,
 FROM products
 GROUP BY category
 ORDER BY max_hind DESC;
-
 
 SELECT category, COUNT(*) AS toodete_arv
 FROM products
@@ -110,4 +98,51 @@ SELECT COUNT(*) - COUNT(customer_id) AS puuduv_klient FROM sales;
 
 ```
 
-Kertu
+## Kertu - Kliendiandmed
+
+Uurisin customer tabelit.
+
+### 3 peamist leidu
+- customer tabelis on kokku 3150 kliendirida.
+- esimene klient registreeriti 02.01.2020 ja uusim 27.02.2025.
+- 380 real puudus kliendi email ja 510 rida on duplikaati (emaili päring).
+- Linna andmetes on suur segadus, plaju erineva kirjapildiga samu asukohti
+
+### Soovitus Toomasele
+Kliendiandmete paremaks analüüsimiseks tuleb teha andmestikus korrastusi ning pöörata tähelepanu puuduvatele andmetele ja duplikaatidele. 
+
+### SQL päringud:
+
+```sql
+
+-- Kontrolli registreerimise kuupäevi.  Millal registreeriti esimene ja viimane klient? (esimese rea koma on oluline, muidu on error)
+select min(registration_date) as vanim,
+      max(registration_date) as uusim
+from customers;
+
+-- Mitu klienti, kus e-mail on puudu? Vastus: 380 kliendil on puuudu e-maili aadress
+SELECT COUNT(*) - COUNT(email) AS puuduvad_emailid
+FROM customers;
+
+-- Mitu klienti, kus lojaalsustase on puudu? Vastus: 1260 kliendil puudub lojaalsustase. 
+SELECT COUNT(*) - COUNT(loyalty_tier) AS puuduvad_lojaalsustasemed
+FROM customers;
+
+-- Kui palju on duplikaatseid kliente? Vastus: kokku emaile 3150, unikaalseid emaile 2640 - 3150-2640= 510 duplikaati
+SELECT COUNT(*) AS kokku_emaile,
+       COUNT(DISTINCT email) AS unikaalseid_emaile
+FROM customers;
+
+-- Klientide arv linnati, parandatud sql versioon AI abiga
+select upper(trim(city)) as korrastatud_linn, COUNT(*) as klientide_arv
+from customers
+group by upper(trim(city))
+order by klientide_arv desc
+
+-- KOKKUVÕTE:
+-- customer tabelis on 3150 rida ja 9 veergu: kliendi ID, ees- ja perenimi, email, telefon, asukoht, registreerimise kuupäev, lojaalsustase ning sünniaasta
+-- emaili on puudu 380 kliendireal
+-- 510 rida on duplikaadid
+-- kõik tühjad andmeväljad vajavad kontrollimist ja korrastamist
+
+´´´
