@@ -1,3 +1,6 @@
+-- WEEK 2 GRUPITÖÖ – Kertu
+-- Roll C: Products / tooteandmete puhastamine
+
 -- Loon test tabeli selleks, et teha muudatusi
 CREATE TABLE products_test AS SELECT * FROM products;
 SELECT COUNT(*) AS ridade_arv FROM products_test;
