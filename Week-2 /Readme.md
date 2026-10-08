@@ -58,47 +58,15 @@ Eesnimede, perenimede ja telefoninumbrite kontrollimisel puuduvaid väärtusi ei
 
 Puhastamisraport
 
-Kontrollitud probleem
+| Kontrollitud probleem | Tulemus | Selgitus |
+|---|---:|---|
+| Korduvad e-posti aadressid | 128 | 258 seotud kliendikirjet, neist 130 lisakirjet. |
+| Puuduv eesnimi | 0 | Puuduvaid väärtusi ei tuvastatud. |
+| Puuduv perenimi | 0 | Puuduvaid väärtusi ei tuvastatud. |
+| Ebajärjekindlad linnanimed | 252 | Nii mitmel kirjel vajas linnanimi standardiseerimist. |
+| Puuduv telefon | 0 | Puuduvaid väärtusi ei tuvastatud. |
+| Puuduv e-post | 380 | E-posti aadress puudub. |
 
-Tulemus
-
-Selgitus
-
-Korduvad e-posti aadressid
-
-128
-
-258 seotud kliendikirjet, neist 130 lisakirjet.
-
-Puuduv eesnimi
-
-0
-
-Puuduvaid väärtusi ei tuvastatud.
-
-Puuduv perenimi
-
-0
-
-Puuduvaid väärtusi ei tuvastatud.
-
-Ebajärjekindlad linnanimed
-
-252
-
-Nii mitmel kirjel vajas linnanimi standardiseerimist.
-
-Puuduv telefon
-
-0
-
-Puuduvaid väärtusi ei tuvastatud.
-
-Puuduv e-post
-
-380
-
-E-posti aadress puudub.
 
 Kokkuvõte ja soovitus
 
