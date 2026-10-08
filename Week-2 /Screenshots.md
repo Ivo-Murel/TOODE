@@ -20,3 +20,16 @@ SQL-kontrollide ekraanipildid ja tulemused.
 ## Products – Kertu
 
 SQL-kontrollide ekraanipildid ja tulemused.
+
+<img width="410" height="564" alt="image" src="https://github.com/user-attachments/assets/0f0f9409-ab5b-44d9-8cfe-5a6a907b8e5a" />
+<img width="413" height="114" alt="image" src="https://github.com/user-attachments/assets/1d9ea22e-a915-4cd1-b202-c7012b9b3803" />
+<img width="940" height="409" alt="image" src="https://github.com/user-attachments/assets/b85ed725-4922-4498-a9cd-f0ebb1c4f056" />
+<img width="940" height="409" alt="image" src="https://github.com/user-attachments/assets/3f352fc0-bb95-4883-9bea-4ed8bcad6a01" />
+<img width="408" height="210" alt="image" src="https://github.com/user-attachments/assets/a0ce1e4b-d828-46e9-9dd4-022bc514a2ce" />
+<img width="441" height="320" alt="image" src="https://github.com/user-attachments/assets/88e69dd1-fc6d-4e06-ae90-fb1f604c1ac9" />
+<img width="396" height="171" alt="image" src="https://github.com/user-attachments/assets/5acc1862-deb5-43ff-9b18-588e7c9fa6e3" />
+<img width="293" height="291" alt="image" src="https://github.com/user-attachments/assets/b4edc975-5c6d-41ec-8a47-e7eb25a5472e" />
+<img width="897" height="439" alt="image" src="https://github.com/user-attachments/assets/e67840f0-e9ce-45c5-9eda-d0594be60d58" />
+<img width="226" height="270" alt="image" src="https://github.com/user-attachments/assets/66718f98-d9f1-46ee-865b-b07d99fc0cbe" />
+
+
