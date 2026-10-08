@@ -108,4 +108,47 @@ Käesolev raport annab ülevaate `sales` tabeli andmekvaliteedi auditist ja läb
 3. Puuduvad customer_id (e-poe müük): Müükide kuupäevad ja summad on küll olemas, kuid tühjad väljad takistavad kliendipõhiseid analüüse (näiteks KES on parimad kliendid või kui palju klient on kokku ostnud). Toomas peaks uurima, kas neid andmeid on võimalik tagantjärele logidest või teistest tabelitest taastada.
 4. E-poe store location on NULL, selguse ja arusaaavuse mõttes võiks “location” tähis samuti olla ONLINE, sarnaselt nagu see on “channel-il”.  
 
+### Kertu – Products
 
+**Domeen:** Tooteandmed (`products`)
+
+### Peamised leiud
+
+- `Products` tabelis on 362 tootekirjet.
+- Tootetabelis on 12 rida duplikaate, mis on leitud veeru product_name kaudu.
+- Kriitilistes väljades NULL- väärtused puuduvad.
+- Loogilised vead (ebareaalsed hinnad) puuduvad.
+- 0 erinevat kategooria väärtust.
+
+### Puhastamine ja valideerimine
+
+Andmete puhastamiseks loodi `products` tabelist testkoopia `products_test`. 
+Muudatused tehti testtabelis vältimaks originaalandmete muutmist.
+
+### Suurim üllatus
+
+Duplikaatread olid igaüks eraldi product_idga aga product_name ja product_price/retail_price olid samad. 
+
+### Soovitus Toomasele
+
+Paremaks tooteanalüüsiks on tarvilik andmed puhastada ja standardiseerida. 
+
+### Puuduvad andmed
+
+Kontroll hõlmas nii NULL-väärtusi kui ka tühje tekstivälju.  
+Tootetabelis oli NULL väärtusi eco_certified veerus 18 real.
+Kriitilise tähtsusega ridadel oli 0 puuduvat väärtust.
+
+### Puhastamisraport
+
+| Kontrollitud probleem | Tulemus | Selgitus |
+|---|---:|---|
+| Duplikaadid | 12 | product_name väärtuse järgi leides |
+| NULL väärtus | 18 | Puudusid väärtused eco_certificated veerus 18 kirjel |
+| Null väärtused kriitilistes andmetes | 0 | Puuduvaid väärtusi ei tuvastatud. |
+| Loogilised vead hindades | 0 | Puuduvaid väärtusi ei tuvastatud. |
+| Erinevused kategooriate nimetuses | 0 | Puuduvaid väärtusi ei tuvastatud. |
+
+### Kokkuvõte ja soovitus
+Toodete tabeli korrastamiseks on tarvis uurida kas ja kui suurt mõju avaldavad 12 leitud duplikaati toodete tabeli analüüsi. 
+Puuduvad andmeväärtused veerus eco_certificated tuleb korrastada. 
