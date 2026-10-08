@@ -135,6 +135,19 @@ FROM sales_test
 WHERE total_price < 0;
 --Tulemus 305 rida
 
-SELECT COUNT(*) FROM sales_test
-WHERE column_name IS NULL;
+KOKKUVÕTE/TULEMUSED/SOOVITUSED
+
+Ülesanne: Leia duplikaadid, NULL väärtused ja vigased kuupäevad sales tabelis. 
+Duplikaadid on loetud GROUP BY + HAVING abil: SQL- skript annab tulemuseks
+4013 unikaalset duplikaatset arvet (invoice_id) - arved, mis esinevad süsteemis rohkem kui korra ja millel on vähemalt üks koopia. 
+5116 duplikaatset rida (korduvad read)
+Kuupäevadega ja hindadega probleeme ei ole, need on olemas ja formaadid on samad
+305 müügitehingut on miinusmärgiga - toodetel on müügihind ja müüdud kogus olemas, aga kogusumma on negatiivne samas väärtuses, tasuta tooted ei saa olla - need oleks arvel null hinnaga. 
+E-poe müükidel ei ole customer_id küljes - kokku 1487 rida
+
+Soovitused Toomasele
+1. Duplikaadid: Paisutavad kunstlikult müügimahte ja summasid, need on vaja enne analüüsi ja raporti genereerimist eemaldada.
+2. Negatiivsed kogusummad - tõenäoliselt süsteemi viga ja on vaja aru saada, millest need tekivad? 
+3. Puuduvad customer_id (e-poe müük): Müükide kuupäevad ja summad on küll olemas, kuid tühjad väljad takistavad kliendipõhiseid analüüse (näiteks KES on parimad kliendid või kui palju klient on kokku ostnud). Toomas peaks uurima, kas neid andmeid on võimalik tagantjärele logidest või teistest tabelitest taastada.
+4. E-poe store location on NULL, selguse ja arusaaavuse mõttes võiks “location” tähis samuti olla ONLINE, sarnaselt nagu see on “channel-il”.
 
