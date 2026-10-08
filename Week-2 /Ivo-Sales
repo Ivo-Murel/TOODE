@@ -1,1 +1,140 @@
+- WEEK 2 GRUPITÖÖ – Ivo
+-- Roll A: Products / müükide puhastamine
+-- Töötlus toimub sales_test tabelis.
+-- =====================================================
+
+-- Loon müügiandmetest test tabeli
+create table sales_test AS
+select * from sales;
+
+-- Loen kokku test_tabeli ridade arvu - vastus 15234
+select count (*) from sales_test
+
+-- Samm 1: Leia duplikaadid, 
+SELECT invoice_id, COUNT(*) AS koopiate_arv
+FROM sales_test
+GROUP BY invoice_id
+HAVING COUNT(*) > 1
+ORDER BY koopiate_arv DESC
+LIMIT 10;
+--Tulemus: tuleb 10 rida, ja näitab mitu invoice_id koopiat on, seal on koopiate arv 5 või 6. näiteks 6 real on sama invoice_id. 
+
+-- Samm 2: Mitu rida on duplikaadid?
+SELECT COUNT(*) AS duplikaat_read
+FROM sales_test
+WHERE id NOT IN (
+    SELECT MIN(id)
+    FROM sales_test
+    GROUP BY invoice_id
+);
+--Tulemus 5116 rida on duplikaadid
+
+SELECT COUNT(*) AS duplikaat_read
+FROM sales_test
+WHERE id NOT IN (
+    SELECT MIN(id), invoice_id
+    FROM sales_test
+    GROUP BY invoice_id
+);
+
+-- 4256 INV-202312-00423 - see on minimaalne ID väärtus, seda rida ei tohiks ära kustutada. 
+select * from sales_test
+where invoice_id = 'INV-202312-00423'
+
+-- Samm 3: Enne — kirjuta üles!
+SELECT COUNT(*) AS enne FROM sales_test;
+
+--15234 rida kokku enne puhastamist
+-- duplikaatridu 5116
+-- Lõpuks peaks alles jääma 15234-5116 = 10118
+
+-- Samm 4: Kustutab duplikaadid - SEDA SAMMU VEEL EI TEINUD!!!!!!!!!!!!!!!!!!!!!!!!!!!
+DELETE 
+FROM sales_test
+WHERE id NOT IN (
+    SELECT MIN(id)
+    FROM sales_test
+    GROUP BY invoice_id
+);
+
+--------- NB! ALLOLEVAD PÄRINGUD SAID TEHTUD PUHASTAMATA SALES TEST TABELI PEAL ---------------------
+
+--Leia duplikaadid — millised tellimused (arved) korduvad?
+SELECT invoice_id, COUNT(*) AS koopiate_arv
+FROM sales_test
+GROUP BY invoice_id
+HAVING COUNT(*) > 1
+ORDER BY koopiate_arv DESC;
+--Tulemus, see näitab, et kas on üldse duplikaate süsteemis, ja kuvab et mõnel arvel on 5 või 6 koopiat, küll aga järjestab suuremast koopiate arvust väiksemani. 
+
+--Kokku 15234 rida
+select count (*)
+from sales_test
+
+--sama päring mis eelmine, aga siin näitab täpset ridade arvu, ehk siis mitu erinevat invoice ID kordub. 
+SELECT COUNT(*) FROM (
+    SELECT invoice_id
+    FROM sales_test
+    GROUP BY invoice_id
+    HAVING COUNT(*) > 1
+) AS korduvad;
+-- Tulemus 4013 duplikaatset arvet - See tähendab, et kokku on 4013 erinevat arvenumbrit, millel on vähemalt üks duplikaat.
+
+-- Loe kokku duplikaatsete ridade arv:
+SELECT COUNT(*) AS duplikaat_read
+FROM sales_test
+WHERE id NOT IN (
+    SELECT MIN(id)
+    FROM sales_test
+    GROUP BY invoice_id
+);
+--Tulemus 5116 rida on duplikaadid, ja niipalju ridu vajaks kustutamist, 
+
+--Leia NULL väärtused kriitilistes väljades:
+SELECT
+    COUNT(*) FILTER (WHERE customer_id IS NULL) AS null_customer_id,
+    COUNT(*) FILTER (WHERE sale_date IS NULL) AS null_sale_date,
+    COUNT(*) FILTER (WHERE total_price IS NULL) AS null_total_price
+FROM sales_test;
+-- Kirjuta üles: ___1478___ NULL customer_id, ___0___ NULL sale_date, __0____ NULL total_price. Kokku 1487 rida millel puudub kliendi ID, kuid kõikidel kõikidel nendel müükidel on küljes kuupäev millal müük tehti ja müügi kogumaksumust
+
+--Kontrolli kuupäevade formaati — kas on tuleviku kuupäevi?
+SELECT COUNT(*) AS tuleviku_kuupaevad
+FROM sales_test
+WHERE sale_date > CURRENT_DATE
+   OR sale_date < DATE '2020-01-01';   -- UrbanStyle.ltd asutati 2020
+-- tulemus: See kontroll peaks tagastama 0 – ja 0 ONGI vastus, mitte ebaõnnestumine.
+
+--Algaja analüütik peab siin aru saama vahest: *ridu ei tule, sest andmed on puhtad* versus ridu ei tule, sest mu päring on vale. Tõesta, et tegu on esimesega
+Select count(*) as tuleviku_kuupäevad
+From sales_test
+WHERE sale_date > Date '2023-06-01' --otsib andmebaasist kõiki ridu, kus müügikuupäev on hilisem kui 1. juuni 2023 (ehk valed/tuleviku kuupäevad). Selles andmestikus andis see tingimus tulemuseks 12 849 rida.
+   OR sale_date < DATE '2020-01-01';   -- UrbanStyle.ltd asutati 2020. Teine tingimus (OR tähendab "või"): otsib ridu, kus müügikuupäev on varasem kui 1. jaanuar 2020. Selles andmestikus oli see pool täiesti puhas ja andis tulemuseks 0 rida.
+-- Tulemus tabelis on 12 849 rida, mille kuupäevad on loogikavastased (kas tulevikus või enne firma sünniperioodi). Kui enne sama päring loogiliste piiridega näitas tulemuseks 0, siis tavalises õiges vahemikus oli andmestik puhas, aga niipea kui piirid absurdseks muutsid, tuli massiliselt "prahti" nähtavale. Selles konkreetses andmestikus minevikupool on täiesti puhas (enne 2020. aastat valesid kuupäevi pole)
+
+--unikaalsed kuupäevad ja mitu tehingut toimus ühel kuupäeval
+SELECT sale_date, COUNT(*) AS ridade_arv
+FROM sales_test
+GROUP BY sale_date
+ORDER BY sale_date ASC;
+
+--mis kuupäevas alates on müügistatisika
+SELECT sale_date
+FROM sales_test
+ORDER BY sale_date asc; -- Kasuta DESC, kui tahad näha alates kõige uuematest
+
+--kas tekstina salvestatud kuupäevad on õige pikkusega / mustriga(näiteks kas kõigil on täpselt 19 sümbolit nagu "2023-01-01 00:00:00")
+SELECT LENGTH(CAST(sale_date AS TEXT)) as pikkus, COUNT(*) 
+FROM sales_test 
+GROUP BY LENGTH(CAST(sale_date AS TEXT));
+--Tulemus, kõikide kuupäevade formaat on sama ja ka pikkus on sama, 19 tähemärki, kokku 15234 rida.
+
+-- müügitehingud, mis on miinusmärgiga
+SELECT *
+FROM sales_test
+WHERE total_price < 0;
+--Tulemus 305 rida
+
+SELECT COUNT(*) FROM sales_test
+WHERE column_name IS NULL;
 
