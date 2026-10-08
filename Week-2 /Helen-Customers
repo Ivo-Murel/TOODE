@@ -1,17 +1,36 @@
+
 -- WEEK 2 GRUPITÖÖ – HELEN
 -- Roll B: Customers / kliendiandmete puhastamine
+-- Töötlus toimub customers_test tabelis.
+-- Algset customers tabelit ei muudeta.
 
--- 1. Loome customers tabelist turvalise testkoopia
+-- =====================================================
+-- 1. LOOME TURVALISE TESTKOOPIA
+-- =====================================================
+-- NB! Seda käsku ei ole vaja uuesti käivitada,
+-- sest customers_test tabel on juba loodud.
+
 CREATE TABLE customers_test AS
-SELECT * FROM customers;
+SELECT *
+FROM customers;
 
--- 2. Kontrollime customers_test ridade arvu
+
+-- =====================================================
+-- 2. KONTROLLIME TESTKOOPIA RIDADE ARVU
+-- =====================================================
+
 SELECT COUNT(*) AS ridade_arv
 FROM customers_test;
--- TULEMUS: customers_test tabelis on 3150 rida.
--- Testkoopia sisaldab sama palju ridu kui algne customers tabel.
 
--- 3. Kontrollime korduvaid e-posti aadresse
+-- TULEMUS:
+-- customers_test tabelis on 3150 rida.
+-- Testkoopia sisaldas sama palju ridu kui algne customers tabel.
+
+
+-- =====================================================
+-- 3. KONTROLLIME KORDUVAID E-POSTI AADRESSE
+-- =====================================================
+
 SELECT
     email,
     COUNT(*) AS koopiate_arv
@@ -20,12 +39,21 @@ WHERE email IS NOT NULL
 GROUP BY email
 HAVING COUNT(*) > 1
 ORDER BY koopiate_arv DESC;
---Näiteks on tulemusel näha:
--- mihkel.rosin@yahoo.com → 3 korda
--- maris.paas@mail.ee → 3 korda
--- mitmed teised → 2 korda
 
--- 4. Loendame, mitu erinevat e-posti aadressi esineb rohkem kui ühe korra
+-- TULEMUS:
+-- Esineb e-posti aadresse, mida kasutatakse mitmel kliendikirjel.
+-- Näiteks:
+-- mihkel.rosin@yahoo.com – 3 kirjet
+-- maris.paas@mail.ee – 3 kirjet
+-- Mitmed teised e-posti aadressid esinevad 2 korda.
+-- Korduv e-post ei tõenda automaatselt, et tegemist
+-- on sama kliendi duplikaatkirjega.
+
+
+-- =====================================================
+-- 4. LOENDAME KORDUVAID E-POSTI AADRESSE
+-- =====================================================
+
 SELECT COUNT(*) AS korduvate_emailide_arv
 FROM (
     SELECT email
@@ -35,24 +63,48 @@ FROM (
     HAVING COUNT(*) > 1
 ) AS korduvad_emailid;
 
--- TULEMUS: customers_test tabelis esineb 128 erinevat
--- mitte-NULL e-posti aadressi rohkem kui ühe korra.
+-- TULEMUS:
+-- 128 erinevat mitte-NULL e-posti aadressi
+-- esineb rohkem kui ühe korra.
 
--- 5. Kontrollime puuduvaid kliendiandmeid
+
+-- =====================================================
+-- 5. KONTROLLIME PUUDUVAID KLIENDIANDMEID
+-- =====================================================
+-- Arvestame nii NULL väärtusi kui ka tühje välju.
+
 SELECT
-    COUNT(*) FILTER (WHERE first_name IS NULL) AS puuduv_eesnimi,
-    COUNT(*) FILTER (WHERE last_name IS NULL) AS puuduv_perenimi,
-    COUNT(*) FILTER (WHERE email IS NULL) AS puuduv_email,
-    COUNT(*) FILTER (WHERE phone IS NULL) AS puuduv_telefon
+    COUNT(*) FILTER (
+        WHERE first_name IS NULL OR TRIM(first_name) = ''
+    ) AS puuduv_eesnimi,
+
+    COUNT(*) FILTER (
+        WHERE last_name IS NULL OR TRIM(last_name) = ''
+    ) AS puuduv_perenimi,
+
+    COUNT(*) FILTER (
+        WHERE email IS NULL OR TRIM(email) = ''
+    ) AS puuduv_email,
+
+    COUNT(*) FILTER (
+        WHERE phone IS NULL OR TRIM(phone) = ''
+    ) AS puuduv_telefon
+
 FROM customers_test;
+
 -- TULEMUS:
 -- Eesnimi puudub 0 kliendil.
 -- Perenimi puudub 0 kliendil.
 -- E-post puudub 380 kliendil.
 -- Telefon puudub 0 kliendil.
--- Puuduvatest kontaktandmetest vajab tähelepanu eelkõige email.
+-- Kontroll hõlmas nii NULL väärtusi kui ka tühje välju.
+-- Peamine puuduvate kontaktandmete probleem on e-post.
 
--- 6. Kontrollime linnanimede erinevaid kirjapilte
+
+-- =====================================================
+-- 6. KONTROLLIME LINNANIMEDE ERINEVAID KIRJAPILTE
+-- =====================================================
+
 SELECT
     city,
     COUNT(*) AS kirjete_arv
@@ -61,62 +113,108 @@ WHERE city IS NOT NULL
 GROUP BY city
 ORDER BY city;
 
--- 7. Kontrollime linnanimede arvu pärast kirjapildi ühtlustamist
+-- TULEMUS ENNE PUHASTAMIST:
+-- Linnanimedel oli 54 erinevat kirjapilti.
+
+
+-- =====================================================
+-- 7. VAATAME, MITU LINNANIME JÄÄKS PÄRAST ÜHTLUSTAMIST
+-- =====================================================
+
 SELECT
     COUNT(DISTINCT INITCAP(TRIM(city))) AS puhastatud_linnade_arv
 FROM customers_test
 WHERE city IS NOT NULL;
--- TULEMUS:
--- Linnanimedel oli algselt 54 erinevat kirjapilti.
--- TRIM ja INITCAP abil kirjapilti ühtlustades jääb 12 erinevat linnanime.
--- See näitab, et city väljal esineb palju ebajärjekindlaid kirjapilte.
 
--- 8. NB! Vaata kogu 8 samm ennem kui midagi köivitad! Standardiseerime linnanimede kirjapildi testtabelis!! NB UPDATE muudab nüüd test tabelit, selectiga vaid vaatasime.
+-- TULEMUS:
+-- Pärast TRIM ja INITCAP rakendamist jääb
+-- 12 erinevat linnanime.
+-- Algsetes andmetes oli 54 erinevat kirjapilti.
+
+
+-- =====================================================
+-- 8A. EELVAADE ENNE LINNANIMEDE MUUTMIST
+-- =====================================================
+-- See SELECT tuleb teha ENNE UPDATE käivitamist.
+-- Näitab, millised väärtused muutmist vajavad.
+
+SELECT
+    city AS enne,
+    INITCAP(TRIM(city)) AS parast
+FROM customers_test
+WHERE city IS NOT NULL
+  AND city <> INITCAP(TRIM(city))
+ORDER BY city;
+
+-- TULEMUS:
+-- Enne puhastamist oli näha linnanimede
+-- erinevaid kirjapilte ja nende ühtlustatud kuju.
+
+
+-- =====================================================
+-- 8B. STANDARDISEERIME LINNANIMED TESTTABELIS
+-- =====================================================
+-- NB! UPDATE muudab andmeid.
+-- See samm on juba tehtud.
+-- Ära käivita seda uuesti ilma vajaduseta.
+
 UPDATE customers_test
 SET city = INITCAP(TRIM(city))
-WHERE city IS NOT NULL;
+WHERE city IS NOT NULL
+  AND city <> INITCAP(TRIM(city));
+
 -- TULEMUS:
 -- Linnanimede kirjapilt standardiseeriti customers_test tabelis.
+-- Algset customers tabelit ei muudetud.
+
+
+-- =====================================================
+-- 8C. JÄRELKONTROLL PÄRAST LINNANIMEDE PUHASTAMIST
+-- =====================================================
+
+SELECT
+    city AS enne,
+    INITCAP(TRIM(city)) AS parast
+FROM customers_test
+WHERE city IS NOT NULL
+  AND city <> INITCAP(TRIM(city))
+ORDER BY city;
+
+-- TULEMUS:
 -- Järelkontroll tagastas 0 rida.
--- Kõik city väärtused vastavad nüüd TRIM + INITCAP kujule.
--- Originaalset customers tabelit ei muudetud.
+-- Kõik mitte-NULL city väärtused vastavad
+-- nüüd TRIM + INITCAP kujule.
 
--- 8A. Eelvaade: kontrollime, kuidas linnanimed muutuksid! Selle tegin enne 8 Run käivitamist!!!!!!!!!!!!!!!!!!!
-SELECT
-    city AS enne,
-    INITCAP(TRIM(city)) AS parast
-FROM customers_test
-WHERE city IS NOT NULL
-  AND city <> INITCAP(TRIM(city))
-ORDER BY city;
 
--- 8 AA JÄRELKONTROLL, et kõik toimis nii nagu peab! Selle tegin peale puhastamist.
+-- =====================================================
+-- 8D. VÕRDLEME LINNANIMEDE ARVU ENNE JA PÄRAST
+-- =====================================================
 
 SELECT
-    city AS enne,
-    INITCAP(TRIM(city)) AS parast
-FROM customers_test
-WHERE city IS NOT NULL
-  AND city <> INITCAP(TRIM(city))
-ORDER BY city;
-
-
--- ENNE PUHASTAMIST: erinevate linnakirjapiltide arv
-SELECT COUNT(DISTINCT city) AS algseid_kirjapilte
+    COUNT(DISTINCT city) AS algseid_kirjapilte
 FROM customers
 WHERE city IS NOT NULL;
 
+-- TULEMUS: 54 erinevat kirjapilti algses tabelis.
 
--- PÄRAST PUHASTAMIST: erinevate linnanimede arv
-SELECT COUNT(DISTINCT city) AS linnu_parast_puhastamist
+
+SELECT
+    COUNT(DISTINCT city) AS linnu_parast_puhastamist
 FROM customers_test
 WHERE city IS NOT NULL;
 
--- 9. Kontrollime, kas sama e-postiga kirjetel on erinevad nimed
+-- TULEMUS: 12 erinevat linnanime pärast puhastamist.
+
+
+-- =====================================================
+-- 9. KONTROLLIME SAMA E-POSTIGA KLIENTIDE NIMESID
+-- =====================================================
+
 SELECT
     email,
     COUNT(*) AS kirjete_arv,
-    COUNT(DISTINCT CONCAT(first_name, ' ', last_name)) AS erinevaid_nimesid
+    COUNT(DISTINCT CONCAT(first_name, ' ', last_name))
+        AS erinevaid_nimesid
 FROM customers_test
 WHERE email IS NOT NULL
 GROUP BY email
@@ -124,18 +222,40 @@ HAVING COUNT(*) > 1
    AND COUNT(DISTINCT CONCAT(first_name, ' ', last_name)) > 1
 ORDER BY erinevaid_nimesid DESC, kirjete_arv DESC;
 
--- 10. Eelvaade: mitu e-posti aadressi vajab standardiseerimist
+-- TULEMUS:
+-- Sama e-posti aadressiga kliendikirjetel esineb erinevaid nimesid.
+-- Näiteks kahel e-posti aadressil oli 3 kirjet ja 3 erinevat nime.
+-- Korduva e-postiga kirjeid ei saa automaatselt
+-- käsitleda duplikaatsete klientidena.
+-- Enne võimalike kirjete eemaldamist tuleb neid täiendavalt kontrollida.
+
+-- EESMÄRK:
+-- Selgitada, kas sama e-posti aadressiga
+-- kliendikirjetel esineb erinevaid nimesid.
+-- Sellised kirjed vajavad enne võimalikku
+-- duplikaatide eemaldamist täiendavat kontrolli.
+
+
+-- =====================================================
+-- 10. KONTROLLIME E-POSTI AADRESSIDE KIRJAPILTI
+-- =====================================================
+
 SELECT COUNT(*) AS parandamist_vajavad_emailid
 FROM customers_test
 WHERE email IS NOT NULL
-  AND email != LOWER(TRIM(email));
+  AND email <> LOWER(TRIM(email));
+
 -- TULEMUS:
 -- Parandamist vajavaid e-posti aadresse on 0.
--- Kõik olemasolevad e-posti aadressid vastavad juba LOWER + TRIM kujule.
--- E-posti aadresside UPDATE ei ole vajalik.
+-- Olemasolevad mitte-NULL e-posti aadressid
+-- vastavad juba LOWER + TRIM kujule.
+-- UPDATE ei ole vajalik.
 
 
--- 11. Kontrollime telefoninumbrite standardset kuju
+-- =====================================================
+-- 11. KONTROLLIME TELEFONINUMBRITE FORMAATI
+-- =====================================================
+
 SELECT
     phone,
     CASE
@@ -150,5 +270,81 @@ LIMIT 10;
 
 -- TULEMUS:
 -- Kontrollitud 10 telefoninumbrit olid juba +372 formaadis.
--- CASE WHEN kontrollis telefoninumbrite kuju.
--- Kontrollitud näidetes ei olnud formaati vaja muuta.
+-- CASE WHEN võimaldab määrata standardiseeritud kuju.
+-- See päring ainult kuvab tulemuse ega muuda andmeid.
+-- Kogu tabeli telefoninumbrite korrektsust
+-- ei saa ainult 10 näite põhjal kinnitada.
+
+-- =====================================================
+-- 12. KONTROLLIME KORDUVATE E-POSTIDE TÄPSET ARVU
+-- =====================================================
+-- EESMÄRK:
+-- Selgitada, mitu kliendikirjet on seotud korduvate
+-- e-posti aadressidega ja mitu lisakirjet esineb.
+-- Korduv e-post ei tähenda automaatselt duplikaatset klienti.
+-- Tulemusi kasutame grupitöö puhastamisraportis.
+
+SELECT
+    SUM(koopiate_arv) AS korduvate_emailidega_kirjeid,
+    COUNT(*) AS erinevaid_korduvaid_emaile,
+    SUM(koopiate_arv - 1) AS lisakirjeid
+FROM (
+    SELECT
+        email,
+        COUNT(*) AS koopiate_arv
+    FROM customers_test
+    WHERE email IS NOT NULL
+    GROUP BY email
+    HAVING COUNT(*) > 1
+) AS korduvad;
+
+-- TULEMUS:
+-- Korduvate e-postidega on seotud 258 kliendikirjet.
+-- Erinevaid korduvaid e-posti aadresse on 128.
+-- Korduvate e-postide põhjal arvutatud lisakirjeid on 130.
+-- Need ei ole automaatselt kinnitatud kliendiduplikaadid.
+-- Enne võimalike kirjete kustutamist tuleb kontrollida
+-- klientide nimesid ja muid tuvastavaid andmeid.
+
+-- LINNANIMEDE LISAKONTROLL PUHASTAMISRAPORTI JAOKS
+-- Kontrollime algsest customers tabelist,
+-- mitu linnanime vajaks TRIM + INITCAP standardiseerimist.
+
+SELECT COUNT(*) AS parandamist_vajavad_linnakirjed
+FROM customers
+WHERE city IS NOT NULL
+  AND city <> INITCAP(TRIM(city));
+
+-- TULEMUS:
+-- Algses customers tabelis vajas linnanime kirjapildi
+-- standardiseerimist 252 kliendikirjet.
+-- Linnanimede erinevate kirjapiltide arv vähenes
+-- pärast puhastamist 54-lt 12-le.
+-- Algset customers tabelit ei muudetud.
+
+
+-- =====================================================
+-- 13. KOKKUVÕTE JA SOOVITUS TOOMASELE
+-- =====================================================
+
+-- Customers tabelis oli kokku 3150 kliendikirjet.
+-- 380 kliendikirjel puudus e-posti aadress.
+-- Eesnimedes, perenimedes ja telefoninumbrites
+-- puuduvate väärtuste kontroll probleeme ei tuvastanud.
+-- 128 erinevat e-posti aadressi esines mitmel kirjel.
+-- Linnanimedel oli algselt 54 erinevat kirjapilti.
+-- Pärast testtabelis standardiseerimist jäi 12 linnanime.
+-- E-posti aadresside kirjapilt ei vajanud parandamist.
+
+
+
+-- SOOVITUS:
+-- Esmajärjekorras tuleks kontrollida puuduvaid
+-- e-posti aadresse ning korduvate e-postidega kliendikirjeid.
+-- Korduvaid kirjeid ei tohiks automaatselt kustutada,
+-- sest sama e-post võib kuuluda erinevatele isikutele.
+-- Linnanimede standardiseerimine aitab parandada
+-- kliendiandmete kvaliteeti ja piirkondlikku analüüsi.
+--
+-- Kõik andmeid muutvad tegevused tehti testtabelis.
+-- Algset customers tabelit ei muudetud.
