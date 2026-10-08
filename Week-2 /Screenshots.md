@@ -4,6 +4,8 @@
 
 SQL-kontrollide ekraanipildid ja tulemused.
 
+<img width="2064" height="1286" alt="Ivo- Week2 - Grupitöö - screenshotid" src="https://github.com/user-attachments/assets/4b4da88a-2d79-4529-83f1-372559d29be2" />
+
 ## Customers – Helen
 
 SQL-kontrollide ekraanipildid ja tulemused.
