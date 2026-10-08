@@ -15,13 +15,10 @@ https://docs.google.com/presentation/d/17zH0yna0C4xXgK4qMWkMrlxvIhGTtx_2h1xMmsGT
 - `customers` tabelis on kokku 3150 kliendikirjet.
 - 380 kliendikirjel puudub e-posti aadress.
 - 128 erinevat mitte-NULL e-posti aadressi esineb rohkem kui ühe korra.
-- Linnanimedel esines algselt 54 erinevat kirjapilti. Pärast väärtuste
-  standardiseerimist `TRIM` ja `INITCAP` abil jäi alles 12 erinevat linnanime.
--Korduvate e-posti aadressidega on seotud 258 kliendikirjet. Kokku tuvastati 128 erinevat korduvat e-posti aadressi ja nende põhjal 130 lisakirjet. Neid ei saa ilma täiendava kontrollita käsitleda kinnitatud kliendiduplikaatidena.
-
--Algses customers tabelis vajas linnanime kirjapildi standardiseerimist 252 kliendikirjet.
-
--Puuduvate andmete kontrollis ei tuvastatud puuduvaid eesnimesid, perenimesid ega telefoninumbreid (kõigis 0 kirjet).
+- Linnanimedel esines algselt 54 erinevat kirjapilti. Pärast standardiseerimist `TRIM` ja `INITCAP` abil jäi alles 12 erinevat linnanime.
+- Korduvate e-posti aadressidega on seotud 258 kliendikirjet. Kokku tuvastati 130 lisakirjet. Neid ei saa ilma täiendava kontrollita käsitleda kinnitatud kliendiduplikaatidena.
+- Algses `customers` tabelis vajas linnanime kirjapildi standardiseerimist 252 kliendikirjet.
+- Puuduvate andmete kontrollis ei tuvastatud puuduvaid eesnimesid, perenimesid ega telefoninumbreid (kõigis 0 kirjet).
 
 ### Puhastamine ja valideerimine
 
@@ -56,7 +53,7 @@ et vältida sama asukoha salvestamist erinevate kirjapiltidega.
 
 Eesnimede, perenimede ja telefoninumbrite kontrollimisel puuduvaid väärtusi ei tuvastatud (kõigis 0 kirjet). Kontroll hõlmas nii NULL-väärtusi kui ka tühje tekstivälju.
 
-Puhastamisraport
+### Puhastamisraport
 
 | Kontrollitud probleem | Tulemus | Selgitus |
 |---|---:|---|
@@ -68,7 +65,7 @@ Puhastamisraport
 | Puuduv e-post | 380 | E-posti aadress puudub. |
 
 
-Kokkuvõte ja soovitus
+### Kokkuvõte ja soovitus
 
 Peamised probleemid on puuduvad e-posti aadressid, korduvate e-posti aadressidega kliendikirjed ja linnanimede ebajärjekindel kirjapilt.
 
