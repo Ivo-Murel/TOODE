@@ -33,3 +33,4 @@ SQL-kontrollide ekraanipildid ja tulemused.
 <img width="226" height="270" alt="image" src="https://github.com/user-attachments/assets/66718f98-d9f1-46ee-865b-b07d99fc0cbe" />
 
 
+<img width="1046" height="603" alt="image" src="https://github.com/user-attachments/assets/d979d5c9-faa8-4c44-937b-76926576e203" />
