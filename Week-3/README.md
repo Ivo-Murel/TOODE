@@ -85,7 +85,7 @@ Suurim üllatus oli see, et esmakordsed/lojaalsustasemeta ostud moodustavad kogu
 
 ### Soovitused Annale ja Toomasele
 
-1. Pöörata tähelepanu turunduse plaanimisel kõikidele piirkondadele. Hetkel paistavad silma suurte ostumahtude lõikes Tallinn, Tartu ja Pärnu **~ 72%** - kus asuvad ka poed. Muud piirkonnad on tagasihoidliku ostusummaga. 
+1. Pöörata tähelepanu turunduse plaanimisel kõikidele piirkondadele. Hetkel paistavad silma suurte ostumahtude lõikes Tallinn, Tartu ja Pärnu **~72%** - kus asuvad ka poed. Muud piirkonnad on tagasihoidliku ostusummaga. 
 2. Meelitada kliente tegema kordusoste.
 3. Suurendada klientide arvu, kes kulutavad enam kui keskmine ostusumma.  Hetkel on selliste klientide hulk **29%**.
 
