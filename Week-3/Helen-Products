@@ -1,14 +1,101 @@
-# Helen – Products | Week 3
+-- ============================================
+-- NÄDAL 3 – GRUPITÖÖ
+-- ROLL C – TOOTED + INVENTUUR
+-- ÜLESANNE 1: Müümata toodete leidmine
+-- ============================================
 
-## Meeskond TOODE
+-- LEFT JOIN näitab tooteid, millel puudub müügikirje.
 
-Vastutaja: Helen  
-Tabel: products
+SELECT
+    p.product_name,
+    p.category,
+    p.subcategory,
+    p.retail_price,
+    s.sale_id
+FROM products p
+LEFT JOIN sales s ON p.product_id = s.product_id
+WHERE s.sale_id IS NULL;
 
-## Nädala teema
+-- TULEMUS – ÜLESANNE 1
+-- Leidsin 12 toodet, mida pole kunagi müüdud.
+-- Kõigil neil puudub müügikirje (sale_id = NULL).
+-- LEFT JOIN päring töötas edukalt.
 
-SQL JOIN-päringud ja toodete andmete analüüs.
+-- ============================================
+-- ROLL C – ÜLESANNE 2
+-- Müümata toodete koguarvu kontroll
+-- ============================================
 
-## Grupitöö tulemused
+SELECT COUNT(*) AS myymata_tooteid
+FROM products p
+LEFT JOIN sales s ON p.product_id = s.product_id
+WHERE s.sale_id IS NULL;
 
-SQL-päringud, tulemused ja tähelepanekud lisatakse töö käigus.
+-- TULEMUS – ÜLESANNE 2
+-- Müümata toodete koguarv on 12.
+-- Tulemus kinnitab ülesande 1 päringut.
+
+
+-- ============================================
+-- ROLL C – ÜLESANNE 3
+-- TOP 10 toodet müügitulu järgi
+-- ============================================
+
+SELECT
+    p.product_name,
+    p.category,
+    ROUND(SUM(s.total_price)::numeric, 2) AS muugitulu
+FROM products p
+JOIN sales s ON p.product_id = s.product_id
+GROUP BY p.product_id, p.product_name, p.category
+ORDER BY muugitulu DESC
+LIMIT 10;
+
+-- TULEMUS – ÜLESANNE 3
+-- Leidsin 10 suurima müügituluga toodet.
+-- Kõige suurema müügituluga toode on
+-- "Õhuline sünteetiline sporditossud" – 27 347,04 €.
+-- TOP 10 hulgas on palju jalanõusid.
+
+-- ============================================
+-- ROLL C – ÜLESANNE 4
+-- Müügitulu võrdlus tootekategooriate kaupa
+-- ============================================
+
+SELECT
+    p.category,
+    COUNT(s.sale_id) AS muukide_arv,
+    ROUND(SUM(s.total_price)::numeric, 2) AS muugitulu
+FROM products p
+JOIN sales s ON p.product_id = s.product_id
+GROUP BY p.category
+ORDER BY muugitulu DESC;
+
+-- TULEMUS – ÜLESANNE 4
+-- Võrdlesin 5 tootekategooria müügitulu.
+-- Suurim müügitulu: jalanõud – 774 034,75 €.
+-- Väikseim müügitulu: laste_riided – 305 844,45 €.
+-- Kõige rohkem müügikirjeid oli meeste_riided kategoorias (2266).
+
+
+-- ============================================
+-- ROLL C – ÜLESANNE 5
+-- Inventuuri tabeli andmete kontroll
+-- ============================================
+
+SELECT *
+FROM inventory
+LIMIT 5;
+
+-- ============================================
+-- ROLL C – ÜLESANNE 5
+-- Inventuuri kirjete arvu kontroll
+-- ============================================
+
+SELECT COUNT(*) AS inventuuri_kirjeid
+FROM inventory;
+
+-- TULEMUS – ÜLESANNE 5
+-- inventory tabelis on 0 kirjet.
+-- Laoseisu analüüsi ei saa teha, sest andmed puuduvad.
+-- Enne analüüsi tuleb inventory tabel täita.
