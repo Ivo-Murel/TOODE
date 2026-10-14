@@ -89,6 +89,55 @@ Suurim üllatus oli see, et esmakordsed/lojaalsustasemeta ostud moodustavad kogu
 2. Meelitada kliente tegema kordusoste.
 3. Suurendada klientide arvu, kes kulutavad enam kui keskmine ostusumma.  Hetkel on selliste klientide hulk **29%**.
 
+## Ivo – Customers + Sales (Roll B)
+
+### Peamised leiud
+
+Andmebaasis on 3150 klienti.
+599 klienti (19 %) pole kunagi ostnud ja on mitteaktiivsed, lisaks nendest 236 kliendil puudub loyalty_tier, selle asemel on NULL.
+Suurim klientide kadu (73%) tuleb kolmest linnast, kokku 434 klienti:
+* Tallinnas 231 (39%)
+* Tartus 133 (22%)
+* Pärnus 70 klienti (12%)
+* Ülejäänud linnad (27%)
+
+Kliendid on registreerunud erinevatel kuupäevadel.
+Viimati registreerus uus klient 2025 a. veebruaris.
+Kõige rohkem kliente kadus perioodil 2024 november, kuni 2025 veebruar, olenevalt kuust 44-53 klienti.
+Millest sellised numbrid? Kas andmebaasi ajaline piirang ei näita tulemusi või ei ole üle aasta aja ühtegi uut klienti juurde saadud.
+
+TOP 20 klienti - erinevatest linnadest, nendest omakorda 10 suurimat klienti on ostnud üle 20K€ väärtuses.
+| customer_id | klient | city | ostude_arv | ostude_kogusumma |
+| :--- | :--- | :--- | :--- | :--- |
+| 3618 | Tiina Pärn | Tartu | 73 | 27,668 |
+| 3350 | Priit Rand | Pärnu | 76 | 26,286 |
+| 2997 | Kevin Org | Tallinn | 78 | 23,467 |
+| 2889 | Laura Tammik | Pärnu | 74 | 23,386 |
+| 3648 | Erkki Ilves | Tartu | 72 | 22,942 |
+| 3605 | Anu Kuusik | Tallinn | 77 | 21,626 |
+| 4206 | Kersti Lill | Tallinn | 71 | 21,137 |
+| 2221 | Riina Lill | Pärnu | 67 | 20,972 |
+| 2154 | Annika Saar | Viljandi | 66 | 20,727 |
+| 3722 | Ago Kull | Pärnu | 64 | 20,125 |
+| 4949 | Marika Sepp | Tallinn | 66 | 19,078 |
+| 4178 | Ago Lõoke | Jõhvi | 70 | 19,011 |
+| 3556 | Merike Vaher | Tallinn | 69 | 18,332 |
+| 3810 | Pille Sepp | Pärnu | 56 | 18,081 |
+| 4018 | Terje Kukk | Rakvere | 61 | 16,146 |
+| 4334 | Priit Järv | Tallinn | 33 | 8,302 |
+| 2775 | Ants Paju | Pärnu | 27 | 7,924 |
+| 2495 | Urmas Kask | Tallinn | 25 | 5,685 |
+| 2955 | Tiina Laas | Tallinn | 13 | 5,418 |
+| 3699 | Marko Pihl | Tartu | 10 | 4,523 |
+
+### Soovitused Annale
+
+* **Turunduse suunamine:** Suunata turundustegevused eelkõige kolme suuremasse linna (Tallinn, Tartu, Pärnu), kus asub enamik mitteaktiivsetest klientidest.
+* **Turunduspaketi kaalumine:** Juhul kui on saadaval turunduspakett, mille tasu hõlmab ka ülejäänud 27% mitteaktiivsetest klientidest, kuid kulu on näiteks vaid 10% kõrgem, tasub seda varianti tõsiselt kaaluda.
+* **Sihitud pakkumised:** Saata mitteaktiivsetele klientidele sihitud e-kiri või SMS personaalse pakkumisega.
+* **Loyalty_tier aktiveerimine:** Klientidele, kellel puudub `loyalty_tier` märge (NULL), aktiveerida koheselt "Silver" staatus (kas tähtajaliselt või tähtajatult) ning saata vastavad teavitused ja eripakkumised eesmärgiga saada klientidelt esimene ost.
+* **Süsteemi kontroll:** Selgitada välja, kas uute klientide registreerimisega on süsteemis tehniline viga või andmebaasi laadimisel ajaline piirang, kuna uusi registreerumisi ei kajastu.
+
 ## Helen – Products + Inventory (Roll C)
 
 **Domeen:** Tooted, müük ja inventuur (`products`, `sales`, `inventory`)
