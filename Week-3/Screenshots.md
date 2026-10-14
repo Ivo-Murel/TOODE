@@ -1,8 +1,10 @@
+
 Week 2 – SQL-JOINs ekraanipildid
 
-## Sales – Kertu
+## Sales – Kertu.  Roll A
 
-SQL-kontrollide ekraanipildid ja tulemused.
+SQL-kontrollide ekraanipildid ja tulemused. 
+[week3_roll_a_myyk_kliendid.docx](https://github.com/user-attachments/files/33435591/week3_roll_a_myyk_kliendid.docx)
 
 
 ## Customers – Ivo
