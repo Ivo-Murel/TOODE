@@ -1,0 +1,112 @@
+-- WEEK 3 GRUPITÖÖ – IVO
+-- Roll B: Kadunud klientide tuvastamine, customers ja sales tabeli alusel, kasutades LEFT JOIN/INNER JOIN/NULL käsklusi.
+
+SELECT COUNT(*) AS sales_ridu FROM sales;
+SELECT COUNT(DISTINCT city) AS linnu FROM customers; 
+
+--mitu müügitehingut (sales tabeli rida) on sooritatud:
+SELECT COUNT(*) AS tehinguid_kokku
+FROM sales;
+--Tulemus 10118 tehingut kokku
+
+--Kliente üldse kokku, tulemus 3150
+SELECT COUNT(*) FROM customers;
+
+-- unikaalsete klientide arv, kes on teinud oste
+SELECT COUNT(DISTINCT c.customer_id) AS unikaalseid_ostjaid
+FROM customers c
+INNER JOIN sales s ON c.customer_id = s.customer_id;
+--Tulemus 2551, ehk siis 81% klientidest on ostnud ja 19% on mitteaktiivsed
+
+--Leia kliendid, kellel pole ühtegi ostu:
+-- LEFT JOIN: kõik kliendid, ka need kellel pole oste
+SELECT
+    c.first_name,
+    c.last_name,
+    c.email,
+    c.city,
+    c.registration_date,
+    s.sale_id
+FROM customers c
+LEFT JOIN sales s ON c.customer_id = s.customer_id
+WHERE s.sale_id IS NULL;
+-- Kui sale_id on NULL, siis klient pole kunagi ostnud!
+--Tulemus 599 klienti ei ole kunagi ostnud, siin terve nimekiri samuti kes on kliendid, mõnel kliendil on emailid puudu. 
+
+--Loe kokku, mitu "kadunud" klienti on:
+SELECT COUNT(*) AS kadunud_kliente
+FROM customers c
+LEFT JOIN sales s ON c.customer_id = s.customer_id
+WHERE s.sale_id IS NULL;
+--Tulemus 599 klienti on "kadunud", sama tulemus mis eelmisega 
+
+--Analüüsi kadunud kliente linnade kaupa:
+SELECT
+    c.city,
+    COUNT(*) AS kadunud_kliente
+FROM customers c
+LEFT JOIN sales s ON c.customer_id = s.customer_id
+WHERE s.sale_id IS NULL
+GROUP BY c.city
+ORDER BY kadunud_kliente DESC;
+--Tulemus, Tallinnast on kadunud 231 klienti, Tartust 130 ja Pärnust 70 klienti, mis teeb kokku 434 klienti, ehk 72% kadunud klientidest asuvad nendes kolmes linnas.
+
+--Uuri registreerimise kuupäeva: Millal kadunud kliendid registreerusid?
+SELECT
+    c.first_name || ' ' || c.last_name AS klient,
+    c.registration_date,
+    c.city,
+    c.loyalty_tier
+FROM customers c
+LEFT JOIN sales s ON c.customer_id = s.customer_id
+WHERE s.sale_id IS NULL
+ORDER BY c.registration_date DESC;
+--Tulemus, 599 rida, osadel klientidel puudub lojaalsustase, selle asemel on NULL.
+
+--kui paljudel klientidel puudub lojaalsustase
+SELECT
+    c.first_name || ' ' || c.last_name AS klient,
+    c.registration_date,
+    c.city,
+    c.loyalty_tier
+FROM customers c
+LEFT JOIN sales s ON c.customer_id = s.customer_id
+WHERE s.sale_id IS NULL and loyalty_tier is null
+ORDER BY c.registration_date DESC;
+--Tulemus, 236 kliendil on see puudu, kliendid on pärit erinevatest linnadest. 
+
+--millistel kuudel need mitteostnud kliendid on registreerunud ja kas tuleb välja mustreid
+SELECT 
+    DATE_TRUNC('month', c.registration_date) AS reg_kuu,
+    COUNT(*) AS kadunud_kliente
+FROM customers c
+LEFT JOIN sales s ON c.customer_id = s.customer_id
+WHERE s.sale_id IS NULL
+GROUP BY reg_kuu
+ORDER BY reg_kuu DESC;
+--Tulemus 62 rida, Kliendid on registreerunud erinevatel kuupäevadel, silma jäi see, et viimased kliendid on kadunud 2025 veebruaris, peale seda ei ole ühtegi klienti kadunud kes registreerusid. Kõige rohkem kliente kadus perioodil 2024 november, kuni 2025 veebruar, olenevalt kuust 44-53 klienti. 
+
+--millal toimus viimane müük ja millal viimane uue kliendi registreerimne
+SELECT 
+    MAX(registration_date) AS viimane_registreerimine,
+    (SELECT MAX(sale_date) FROM sales) AS viimane_myyk
+FROM customers;
+--Tulemus - 2025 veebruar viimane registreerimine ja 2026 juuni viimane müük. Tõenäoliselt andmebaasi ajaline piirang või siis ei ole nad üle aasta aja ühtegi uut klienti juurde saanud ja elavad ainult vanade pealt. 
+
+--Võrdle kadunud vs aktiivsete klientide arvu:
+SELECT
+    CASE
+        WHEN s.sale_id IS NULL THEN 'Kadunud (pole ostnud)'
+        ELSE 'Aktiivne (on ostnud)'
+    END AS staatus,
+    COUNT(DISTINCT c.customer_id) AS kliente
+FROM customers c
+LEFT JOIN sales s ON c.customer_id = s.customer_id
+GROUP BY
+    CASE
+        WHEN s.sale_id IS NULL THEN 'Kadunud (pole ostnud)'
+        ELSE 'Aktiivne (on ostnud)'
+    END;
+--tulemus aktiivsed 2551 ja ei ole ostnud 599 = 3150 klienti andmebaasis
+
+
