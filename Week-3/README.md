@@ -32,7 +32,7 @@ Harjutame INNER JOIN, LEFT JOIN, RIGHT JOIN ning mitme tabeli ühendamist.
 | Ostudega kliendiread | **9 130** | Tabelis on 9130 rida kliendirida, kes on sooritanud ostu|
 | Suurima kogusummaga ostja | Tiina Pärn| Ostusumma kokku **27 668 €**|
 | Suurima ostusummaga linn | Tallinn | Klientide ostu kogusumma **1 006 252 €**|
-| Lojaalsustase | 1024 kliendil puudub| Lojaalsustasemeta klientidel koste kogusummas **1 071 805 €** |
+| Lojaalsustase | 1024 kliendil puudub| Lojaalsustasemeta klientidel oste kogusummas **1 071 805 €** |
 
 ### SQL-analüüs
 
@@ -86,7 +86,7 @@ Suurim üllatus oli see, et esmakordsed/lojaalsustasemeta ostud moodustavad kogu
 ### Soovitused Annale ja Toomasele
 
 1. Pöörata tähelepanu turunduse plaanimisel kõikidele piirkondadele. Hetkel paistavad silma suurte ostumahtude lõikes Tallinn, Tartu ja Pärnu **~72%** - kus asuvad ka poed. Muud piirkonnad on tagasihoidliku ostusummaga. 
-2. Meelitada kliente tegema kordusoste.
+2. Meelitada kliente tegema kordusoste läbi erinevate sihitud turunduskampaaniate. 
 3. Suurendada klientide arvu, kes kulutavad enam kui keskmine ostusumma.  Hetkel on selliste klientide hulk **29%**.
 
 ## Ivo – Customers + Sales (Roll B)
