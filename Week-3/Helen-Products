@@ -21,6 +21,28 @@ WHERE s.sale_id IS NULL;
 -- Leidsin 12 toodet, mida pole kordagi müüdud.
 -- Kõigil puudub müügikirje (sale_id = NULL).
 
+-- Kõik 12 toodet, mida pole kordagi müüdud
+
+SELECT
+    p.product_name
+FROM products p
+LEFT JOIN sales s ON p.product_id = s.product_id
+WHERE s.sale_id IS NULL;
+
+-- MÜÜMATA TOOTED:
+-- 1. Vintage nahkne tossud
+-- 2. Luksuslik keraamiline elastne vöö
+-- 3. Moodne keraamiline sall
+-- 4. Stiilne puust müts
+-- 5. Kerge siidine nahkkindad
+-- 6. Klassikaline kašmiir pusa
+-- 7. Luksuslik teksane polo särk
+-- 8. Minimalistlik kašmiir bleiser
+-- 9. Praktiline trikoo sukkpüksid
+-- 10. Elegantne keraamiline rahakott
+-- 11. Moodne villane nahk sandaalid
+-- 12. Stiilne orgaaniline pidžaama
+
 
 -- ============================================
 -- ÜLESANNE 2 – Müümata toodete koguarv
