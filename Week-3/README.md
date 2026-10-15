@@ -162,11 +162,28 @@ TOP 20 klienti - erinevatest linnadest, nendest omakorda 10 suurimat klienti on 
 
 **Tulemus:** 12 müümata toodet.
 
+
 **2. Müümata toodete koguarv**
 
 Kasutasin `COUNT(*)` funktsiooni, et kontrollida müümata toodete arvu.
 
 **Tulemus:** 12 toodet.
+
+ **MÜÜMATA TOOTED:**
+
+1. Vintage nahkne tossud
+2. Luksuslik keraamiline elastne vöö
+3. Moodne keraamiline sall
+4. Stiilne puust müts
+5. Kerge siidine nahkkindad
+6. Klassikaline kašmiir pusa
+7. Luksuslik teksane polo särk
+8. Minimalistlik kašmiir bleiser
+9. Praktiline trikoo sukkpüksid
+10. Elegantne keraamiline rahakott
+11. Moodne villane nahk sandaalid
+12. Stiilne orgaaniline pidžaama
+
 
 **3. TOP 10 toodet müügitulu järgi**
 
