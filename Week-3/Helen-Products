@@ -1,10 +1,11 @@
 -- ============================================
 -- NÄDAL 3 – GRUPITÖÖ
 -- ROLL C – TOOTED + INVENTUUR
--- ÜLESANNE 1: Müümata toodete leidmine
 -- ============================================
 
--- LEFT JOIN näitab tooteid, millel puudub müügikirje.
+-- ============================================
+-- ÜLESANNE 1 – Müümata toodete leidmine
+-- ============================================
 
 SELECT
     p.product_name,
@@ -17,13 +18,12 @@ LEFT JOIN sales s ON p.product_id = s.product_id
 WHERE s.sale_id IS NULL;
 
 -- TULEMUS – ÜLESANNE 1
--- Leidsin 12 toodet, mida pole kunagi müüdud.
--- Kõigil neil puudub müügikirje (sale_id = NULL).
--- LEFT JOIN päring töötas edukalt.
+-- Leidsin 12 toodet, mida pole kordagi müüdud.
+-- Kõigil puudub müügikirje (sale_id = NULL).
+
 
 -- ============================================
--- ROLL C – ÜLESANNE 2
--- Müümata toodete koguarvu kontroll
+-- ÜLESANNE 2 – Müümata toodete koguarv
 -- ============================================
 
 SELECT COUNT(*) AS myymata_tooteid
@@ -33,12 +33,10 @@ WHERE s.sale_id IS NULL;
 
 -- TULEMUS – ÜLESANNE 2
 -- Müümata toodete koguarv on 12.
--- Tulemus kinnitab ülesande 1 päringut.
 
 
 -- ============================================
--- ROLL C – ÜLESANNE 3
--- TOP 10 toodet müügitulu järgi
+-- ÜLESANNE 3 – TOP 10 toodet müügitulu järgi
 -- ============================================
 
 SELECT
@@ -52,14 +50,12 @@ ORDER BY muugitulu DESC
 LIMIT 10;
 
 -- TULEMUS – ÜLESANNE 3
--- Leidsin 10 suurima müügituluga toodet.
--- Kõige suurema müügituluga toode on
--- "Õhuline sünteetiline sporditossud" – 27 347,04 €.
--- TOP 10 hulgas on palju jalanõusid.
+-- Suurima müügituluga toode:
+-- Õhuline sünteetiline sporditossud – 27 347,04 €.
+
 
 -- ============================================
--- ROLL C – ÜLESANNE 4
--- Müügitulu võrdlus tootekategooriate kaupa
+-- ÜLESANNE 4 – Kategooriate müügitulu võrdlus
 -- ============================================
 
 SELECT
@@ -72,30 +68,66 @@ GROUP BY p.category
 ORDER BY muugitulu DESC;
 
 -- TULEMUS – ÜLESANNE 4
--- Võrdlesin 5 tootekategooria müügitulu.
+-- Võrdlesin 5 tootekategooriat.
 -- Suurim müügitulu: jalanõud – 774 034,75 €.
 -- Väikseim müügitulu: laste_riided – 305 844,45 €.
--- Kõige rohkem müügikirjeid oli meeste_riided kategoorias (2266).
+-- Kõige rohkem müügikirjeid: meeste_riided – 2266.
 
 
 -- ============================================
--- ROLL C – ÜLESANNE 5
--- Inventuuri tabeli andmete kontroll
--- ============================================
-
-SELECT *
-FROM inventory
-LIMIT 5;
-
--- ============================================
--- ROLL C – ÜLESANNE 5
--- Inventuuri kirjete arvu kontroll
+-- ÜLESANNE 5 – Inventuuriandmete kontroll
 -- ============================================
 
 SELECT COUNT(*) AS inventuuri_kirjeid
 FROM inventory;
 
 -- TULEMUS – ÜLESANNE 5
--- inventory tabelis on 0 kirjet.
--- Laoseisu analüüsi ei saa teha, sest andmed puuduvad.
--- Enne analüüsi tuleb inventory tabel täita.
+-- inventory tabelis on 1400 kirjet.
+-- Inventuuriandmed on olemas ja laoseisu saab analüüsida.
+
+
+-- ============================================
+-- ÜLESANNE 6 – Juurdetellimist vajavad laoseisud
+-- ============================================
+
+SELECT
+    p.product_name,
+    i.location,
+    i.quantity_available,
+    i.reorder_point
+FROM inventory i
+JOIN products p ON i.product_id = p.product_id
+WHERE i.quantity_available <= i.reorder_point
+ORDER BY i.quantity_available ASC;
+
+-- TULEMUS – ÜLESANNE 6
+-- Leidsin laokirjeid, mille kogus on juurdetellimise
+-- piiril või sellest väiksem.
+-- Esines ka negatiivseid laoseise (näiteks -46).
+-- Negatiivsed laoseisud vajavad täiendavat kontrolli.
+
+
+-- ============================================
+-- ÜLESANNE 7 – Juurdetellimist vajavate kirjete arv
+-- ============================================
+
+SELECT COUNT(*) AS juurdetellimist_vajavaid_kirjeid
+FROM inventory
+WHERE quantity_available <= reorder_point;
+
+-- TULEMUS – ÜLESANNE 7
+-- Tähelepanu vajab 231 laokirjet 1400-st (16,5%).
+-- Tegemist on laokirjete, mitte tingimata
+-- 231 erineva tootega.
+
+
+-- ============================================
+-- KOKKUVÕTE JA SOOVITUSED
+-- ============================================
+
+-- 1. Kontrollida 12 müümata toote nõudlust ja hindu.
+-- 2. Jälgida jalanõude kategooria toodete saadavust.
+-- 3. Uurida lasteriiete väiksema müügitulu põhjuseid.
+-- 4. Kontrollida 231 tähelepanu vajavat laokirjet.
+-- 5. Selgitada negatiivsete laoseisude põhjused
+--    ja planeerida vajalikud juurdetellimised.
