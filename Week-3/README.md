@@ -151,7 +151,8 @@ TOP 20 klienti - erinevatest linnadest, nendest omakorda 10 suurimat klienti on 
 | Suurima müügituluga kategooria | Jalanõud – **774 034,75 €** |
 | Väikseima müügituluga kategooria | Lasteriided – **305 844,45 €** |
 | Kõige rohkem müügikirjeid | Meesteriided – **2266** |
-| Inventuuritabeli kirjete arv | **0** |
+| Inventuuritabeli kirjete arv | **1400** |
+| Juurdetellimist või kontrolli vajavad laokirjed | **231 (16,5%)** |
 
 ### SQL-analüüs
 
@@ -179,24 +180,36 @@ Arvutasin müügikirjete arvu ja müügitulu iga tootekategooria kohta.
 
 **Tulemus:** Kõige suurema müügituluga kategooria oli **jalanõud (774 034,75 €)** ja kõige väiksemaga **lasteriided (305 844,45 €)**.
 
-**5. Inventuuri ja laoseisu kontroll**
+**5. Inventuuriandmete kontroll**
 
-Kontrollisin `inventory` tabeli sisu ja kirjete arvu.
+Kontrollisin `inventory` tabeli kirjete arvu funktsiooniga `COUNT(*)`.
 
-**Tulemus:** Tabelis oli **0 kirjet**. Laoseisu ja juurdetellimise vajadust ei saanud hinnata.
+**Tulemus:** Tabelis on **1400 kirjet**.
+
+**6. Juurdetellimist vajavate laoseisude leidmine**
+
+Ühendasin `inventory` ja `products` tabelid ning otsisin laokirjeid, mille `quantity_available` on väiksem või võrdne `reorder_point` väärtusega.
+
+**Tulemus:** Leidsin juurdetellimise piiril või sellest allpool olevaid laoseise. Mõnel kirjel oli laoseis negatiivne (näiteks −46).
+
+**7. Juurdetellimist vajavate laokirjete arv**
+
+Kasutasin `COUNT(*)` funktsiooni, et lugeda kokku juurdetellimise piiril või sellest allpool olevad laokirjed.
+
+**Tulemus:** **231 laokirjet ehk 16,5%** kõigist inventuurikirjetest.
 
 ### Suurim üllatus
 
-Kõige üllatavam oli see, et `inventory` tabel oli tühi nii ühises grupiprojektis kui ka individuaalses projektis.
+Kõige üllatavam oli negatiivsete laoseisude esinemine. Näiteks ühe toote laoseis oli **−46 ühikut**.
 
-See takistas laoseisu analüüsi, kuigi toodete müügitulu oli võimalik arvutada.
+See võib viidata laoseisuandmete vigadele või vajadusele kontrollida kaupade liikumise arvestust.
 
 ### Soovitused Annale ja Toomasele
 
 1. **Müümata tooted:** kontrollida 12 müümata toote nõudlust ja hindu ning kaaluda sobivaid müügikampaaniaid.
 2. **Populaarsed tooted:** jälgida jalanõude kategooria toodete saadavust, sest see kategooria tõi kõige rohkem müügitulu.
 3. **Lasteriided:** uurida väiksema müügitulu põhjuseid ja võimalusi müügi parandamiseks.
-4. **Inventuur:** täiendada `inventory` tabelit tegelike laoseisuandmetega, et oleks võimalik tuvastada juurdetellimist vajavad tooted.
+4. **Inventuur:** kontrollida 231 tähelepanu vajavat laokirjet, selgitada välja negatiivsete laoseisude põhjused ning planeerida vajalikud juurdetellimised.
 
 ### Kokkuvõte
 
@@ -204,5 +217,4 @@ SQL JOIN-päringute abil tuvastasin **12 müümata toodet** ning võrdlesin tood
 
 Kõige suurema müügituluga kategooria oli **jalanõud (774 034,75 €)**.
 
-Inventuuriandmete puudumise tõttu ei olnud võimalik hinnata tegelikku laoseisu. Edasiseks analüüsiks tuleb `inventory` tabelisse lisada andmed.
-
+Inventuurianalüüs hõlmas **1400 laokirjet**, millest **231 (16,5%)** olid juurdetellimise piiril või sellest allpool. Negatiivsed laoseisud vajavad täiendavat kontrolli.
