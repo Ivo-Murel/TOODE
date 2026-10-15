@@ -18,5 +18,6 @@ Kadunud kliendid
 
 **Helen – Week 3: Products + Inventory (Roll C)**
 
-[Week_3_Teem_Roll_C_Products_Inventory.docx.docx](https://github.com/user-attachments/files/33431832/Week_3_Teem_Roll_C_Products_Inventory.docx.docx)
+[Week_3_Teem_Roll_C_Products_Inventory.docx.docx](https://github.com/user-attachments/files/33476653/Week_3_Teem_Roll_C_Products_Inventory.docx.docx)
+
 
