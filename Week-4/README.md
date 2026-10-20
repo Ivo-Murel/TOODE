@@ -18,7 +18,7 @@ Kasutame muu hulgas `GROUP BY`, `HAVING`, CTE-sid ja aknafunktsioone.
 | Liige | Roll | Vastutus |
 |---|---|---|
 | Helen | SALES | Müügi- ja turundusanalüüs |
-| Ivo | Inventuur | Inventuuri statistika |
+| Ivo | Inventuur | Kategooriad, laoseis ja müügid |
 | Kertu | Täpsustamisel | Roll määratakse meeskonnas |
 
 Rollid vahetuvad nädalate lõikes, et kõik meeskonnaliikmed saaksid harjutada erinevate andmevaldkondade analüüsimist.
