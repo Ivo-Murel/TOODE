@@ -18,7 +18,7 @@ Kasutame muu hulgas `GROUP BY`, `HAVING`, CTE-sid ja aknafunktsioone.
 | Liige | Roll | Vastutus |
 |---|---|---|
 | Helen | SALES | Müügi- ja turundusanalüüs |
-| Ivo | Täpsustamisel | Roll määratakse meeskonnas |
+| Ivo | Inventuur | Inventuuri statistika |
 | Kertu | Täpsustamisel | Roll määratakse meeskonnas |
 
 Rollid vahetuvad nädalate lõikes, et kõik meeskonnaliikmed saaksid harjutada erinevate andmevaldkondade analüüsimist.
@@ -28,7 +28,7 @@ Rollid vahetuvad nädalate lõikes, et kõik meeskonnaliikmed saaksid harjutada 
 Meeskonnaliikmete SQL-päringud ja analüüsitulemused lisame sellesse kausta töö käigus.
 
 - `Helen-Sales` – Heleni müügi- ja turundusanalüüs (tegemisel)
-- Ivo tööfail – lisamisel
+- Ivo Inventuur
 - Kertu tööfail – lisamisel
 - `Screenshots.md` – tulemuste ekraanipildid (lisamisel)
 
