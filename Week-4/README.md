@@ -21,7 +21,7 @@ Kasutame muu hulgas `GROUP BY`, `HAVING`, CTE-sid ja aknafunktsioone.
 |---|---|---|
 | Helen | SALES | Müügi- ja turundusanalüüs |
 | Ivo | Inventuur | Kategooriad, laoseis ja müügid |
-| Kertu | Täpsustamisel | Roll määratakse meeskonnas |
+| Kertu | Kliendid | Kliendianalüüs |
 
 Rollid vahetuvad nädalate lõikes, et kõik meeskonnaliikmed saaksid harjutada erinevate andmevaldkondade analüüsimist.
 
@@ -31,7 +31,7 @@ Meeskonnaliikmete SQL-päringud ja analüüsitulemused lisame sellesse kausta t�
 
 - `Helen-Sales` – Heleni müügi- ja turundusanalüüs (tegemisel)
 - Ivo Inventuur
-- Kertu tööfail – lisamisel
+- `Kertu Customers` – kliendiprofiilide analüüs
 - `Screenshots.md` – tulemuste ekraanipildid (lisamisel)
 
 ## Töö seis
