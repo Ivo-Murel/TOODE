@@ -37,6 +37,93 @@ Meeskonnaliikmete SQL-päringud ja analüüsitulemused lisame sellesse kausta t�
 ## Töö seis
 
 **4. nädala meeskonnatöö on ettevalmistamisel.**
+## Grupitöö
+
+---
+## Kertu – Customers (Roll B)
+
+**Domeen:** Kliendid  `customer`
+
+### Peamised leiud
+
+| Kontrollitud näitaja | Tulemus | Kommentaar|
+|---|---|---|
+| Ostudega kliendiread | **9 130** | Tabelis on 9130 rida kliendirida, kes on sooritanud ostu|
+| Suurima kogusummaga ostja | Tiina Pärn| Ostusumma kokku **27 668 €**|
+| Suurima ostusummaga linn | Tallinn | Klientide ostu kogusumma **1 006 252 €**|
+| Lojaalsustase | 1024 kliendil puudub| Lojaalsustasemeta klientidel oste kogusummas **1 071 805 €** |
+
+### SQL-analüüs
+
+**1. Kliendigruppide analüüs CTE, iga kliendi kogukulutus ja segmenteerimine**
+
+Ühendasin `sales` ja `customer` tabelid ning arvutasin iga kliendi kogukulutuse ning leidsin segmendi.
+
+**Tulemus:**  
+| Segment| Kliente | Keskmine_kulu|
+|---|---|---|
+| VIP | 19 | 18 227 € |
+| Regular | 917 | 1 615 € |
+| Tavaline | 1615| 492 €|
+
+**2. TOP 10 klienti kogukulu järgi**
+
+Kasutasin `COUNT ()`, `SUM()`, `GROUP BY`,`HAVING` ja `ORDER BY`  päringuid, et leida TOP 10 klienti, kes on sooritanud oste suurimas kogusummas.
+
+**Tulemus:** Leitud 10 kõige suurema  koguostusummaga klienti.
+
+| customer_id | kliendi_nimi | tellimuste_arv | kogukulu |
+| ----------- | ------------ | -------------- | --------- |
+| 3618        | Tiina Pärn   | 73             | 27 668.02  |
+| 3350        | Priit Rand   | 76             | 26 286.10  |
+| 2997        | Kevin Org    | 78             | 23 467.13  |
+| 2889        | Laura Tammik | 74             | 23 385.82  |
+| 3648        | Erkki Ilves  | 72             | 22 942.42  |
+| 3605        | Anu Kuusik   | 77             | 21 626.10  |
+| 4206        | Kersti Lill  | 71             | 21 137.47  |
+| 2221        | Riina Lill   | 67             | 20 972.33  |
+| 2154        | Annika Saar  | 66             | 20 726.79  |
+| 3722        | Ago Kull     | 64             | 20 124.61  |
+
+**3. Kliendisegmentide koondstatistika**
+
+Kasutasin `COUNT()`, `SUM()`, `GROUP BY` ja `ORDER BY` päringuid jagamaks kliente segmentidesse. Piirid arvestatud week 3 leitud keskmise ostusumma järgi, mis oli 1 140 €
+Piirid:
+a) VIP kogukulu > 5000 €
+b) Regular 5000 € < kogukulu >1000 €
+c) Tavaline kogukulu < 1000 €
+
+**Tulemus:** 
+| Segment | Klientide_arv | Segmendi_keskmine_kaive |
+| ------- | ------------- | ----------------------- |
+| VIP     | 19            | 18 227.01               |
+| Regular | 917           | 1 615.43                |
+| Tavaline   | 1615          | 492.30                  |
+
+**4. Segmentide koondstatistika**
+
+Leidsin kõigi 3 losegmendi keskmise käibe, Lisaks leidsin, millistes linnades on kõige rohkem VIP kliente. 
+
+**Tulemus:**
+| segment  | klientide_arv | segmendi_keskmine_kaive | enim_vip_kliente_linnades                                               |
+| -------  | ------------- | ----------------------- | ----------------------------------------------------------------------- |
+| VIP      | 19            | 18227.01                | Tallinn (8), Pärnu (6), Tartu (2), Jõhvi (1), Rakvere (1), Viljandi (1) |
+| Regular  | 917           | 1615.43                 | -                                                                       |
+| Tavaline | 1615          | 492.30                  | -                                                                       |
+
+**5. Iga linna kohta leitud 5 top klienti, kliendisegment ja kogukulu**
+
+Kasutasin `ROUND()`, `SUM()`, `GROUP BY`,`ORDER BY` `, `RANK` ja `CASE WHEN` päringuid, et leida esmalt kõikide klientide kogukulu ja linn, seejärel ägada need segmentideks ning leida igalinna kohta top 5 VIP klienti järjestatuna kogukulu järgi.  
+
+**Tulemus:** Iga linna kohta leitud VIP klientide järjestus, Piiratud tulemusi iga linna kohta 5ga. 
+
+### Suurim üllatus
+
+Suurim üllatus oli see, et esmakordsed/lojaalsustasemeta ostud moodustavad kogumüügist ligikaudu **40%**. Samuti on väga suur osakaal Tallinnast pärit klientide ostudel müügitulust - **38%**.
+
+### Soovitused Kristile
+
+
 
 SQL-analüüsid, tulemused, järeldused ja ühised soovitused lisame pärast ülesannete tegemist.
 
