@@ -11,6 +11,8 @@
 
 Neljandal nädalal keskendume SQL-i abil andmete grupeerimisele, agregeerimisele ja äriliste järelduste tegemisele UrbanStyle'i andmebaasis.
 
+- [Vaata meie ühist esitlust siit:](https://docs.google.com/presentation/d/1NEEeLFbxaILTYv0__Oxeff_V8zb6N4MpVi6k0TyTfrk/edit?slide=id.p#slide=id.p)
+
 Kasutame muu hulgas `GROUP BY`, `HAVING`, CTE-sid ja aknafunktsioone.
 
 ## Tööjaotus
