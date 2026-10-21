@@ -46,12 +46,6 @@ Meeskonnaliikmete SQL-päringud ja analüüsitulemused lisame sellesse kausta t�
 
 ### Peamised leiud
 
-| Kontrollitud näitaja | Tulemus | Kommentaar|
-|---|---|---|
-| Ostudega kliendiread | **9 130** | Tabelis on 9130 rida kliendirida, kes on sooritanud ostu|
-| Suurima kogusummaga ostja | Tiina Pärn| Ostusumma kokku **27 668 €**|
-| Suurima ostusummaga linn | Tallinn | Klientide ostu kogusumma **1 006 252 €**|
-| Lojaalsustase | 1024 kliendil puudub| Lojaalsustasemeta klientidel oste kogusummas **1 071 805 €** |
 
 ### SQL-analüüs
 
@@ -102,7 +96,7 @@ c) Tavaline kogukulu < 1000 €
 
 **4. Segmentide koondstatistika**
 
-Leidsin kõigi 3 losegmendi keskmise käibe, Lisaks leidsin, millistes linnades on kõige rohkem VIP kliente. 
+Leidsin kõigi 3 segmendi keskmise käibe. Lisaks leidsin, millistes linnades on kõige rohkem VIP kliente. 
 
 **Tulemus:**
 | segment  | klientide_arv | segmendi_keskmine_kaive | enim_vip_kliente_linnades                                               |
@@ -118,11 +112,12 @@ Kasutasin `ROUND()`, `SUM()`, `GROUP BY`,`ORDER BY` `, `RANK` ja `CASE WHEN` pä
 **Tulemus:** Iga linna kohta leitud VIP klientide järjestus, Piiratud tulemusi iga linna kohta 5ga. 
 
 ### Suurim üllatus
-
-Suurim üllatus oli see, et esmakordsed/lojaalsustasemeta ostud moodustavad kogumüügist ligikaudu **40%**. Samuti on väga suur osakaal Tallinnast pärit klientide ostudel müügitulust - **38%**.
+ 
 
 ### Soovitused Kristile
-
+* Kasvatada VIP kientide lojaalsusprogrammi luues eraldi personaalse ja eksklusiivse teeninduse. Näiteks individuaalne suhtlus, eelisjuurdepääs uutele kollektsioonidele, stiilinõustamine.
+* Aktiivse segmendi ehitamine VIP-ks läbi sihtmärgistatud progresseerivate pakkumiste. Need stimuleerivad keskmise ostukorvi kasvu ja sagedust.
+* Näidata investoritele selget kliendiredelit: kuidas tavakliendist saab 1000 € künnise ületamisel Aktiivne klient ja sealt edasi 5000 € künnisega VIP.  See tõestab toimivat klienditeekonda ja stabiilset rahakäibet. 
 
 
 SQL-analüüsid, tulemused, järeldused ja ühised soovitused lisame pärast ülesannete tegemist.
