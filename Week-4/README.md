@@ -149,9 +149,9 @@ Täiendasin CTE ja `LAG()` abil koostatud trendianalüüsi, arvutades käibemuut
 
 **Järeldus:** Detsembri müügikäive suurenes novembriga võrreldes 54,3%, samas kui septembris vähenes käive augustiga võrreldes 24,6%. Need tulemused näitavad märkimisväärseid kuiseid kõikumisi, kuid ühe aasta andmete põhjal ei saa veel kinnitada püsivat hooajalisust.
 
-### Müügianalüüsi kokkuvõte juhtkonnale
+### Müügianalüüsi kokkuvõte juhtkonnale 
 
-2024. aasta müügikäive oli kuude lõikes kõikuv: kõrgeim kuukäive saavutati detsembris (170 623,28 €) ja madalaim jaanuaris (85 618,65 €), kusjuures detsembri tulemus ületas jaanuari oma ligikaudu 99%.
+2024. aasta müügikäive oli kuude lõikes kõikuv. Kõrgeim kuukäive oli detsembris (170 623,28 €) ja madalaim jaanuaris (85 618,65 €). Detsembri käive ületas jaanuari oma ligikaudu 99%.
 
 Kuust-kuusse võrdluses toimus suurim kasv detsembris (+60 049,34 € ehk 54,3%) ning suurim langus septembris (−35 602,70 € ehk 24,6%).
 
