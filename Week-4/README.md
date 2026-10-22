@@ -39,6 +39,169 @@ Meeskonnaliikmete SQL-päringud ja analüüsitulemused lisame sellesse kausta t�
 **4. nädala meeskonnatöö on ettevalmistamisel.**
 ## Grupitöö
 
+
+---
+
+## Helen – Sales & Marketing (Roll A)
+
+**Domeen:** Müügi koondandmed (`sales`, `products`)
+
+### Peamised leiud
+
+2024. aasta müügikäive oli kokku **1 470 358,02 €**.
+
+- Suurima müügikäibega kuu oli **detsember** – 170 623,28 €.
+- Väikseima müügikäibega kuu oli **jaanuar** – 85 618,65 €.
+- Suurim kuine käibekasv toimus **detsembris (+54,3%)**.
+- Suurim kuine käibelangus toimus **septembris (−24,6%)**.
+- Suurima müügikäibega tootekategooria oli **meeste_riided** – 389 738,54 €.
+
+### SQL-analüüs
+
+**1. Müük kuude kaupa – 2024**
+
+Kasutasin `DATE_TRUNC()`, `COUNT()`, `SUM()`, `AVG()` ja `GROUP BY` funktsioone, et analüüsida 2024. aasta müügikirjete arvu, kogukäivet ja keskmist müügikirje summat kuude kaupa.
+
+**Tulemus:**
+
+| Kuu | Müügikirjeid | Kogukäive (€) | Keskmine müügikirje summa (€) |
+|---|---:|---:|---:|
+| Jaanuar | 312 | 85 618,65 | 274,42 |
+| Veebruar | 334 | 90 181,83 | 270,01 |
+| Märts | 412 | 109 559,98 | 265,92 |
+| Aprill | 411 | 113 838,38 | 276,98 |
+| Mai | 413 | 116 843,02 | 282,91 |
+| Juuni | 509 | 144 558,18 | 284,00 |
+| Juuli | 510 | 146 800,80 | 287,84 |
+| August | 511 | 144 870,17 | 283,50 |
+| September | 392 | 109 267,47 | 278,74 |
+| Oktoober | 391 | 127 622,32 | 326,40 |
+| November | 392 | 110 573,94 | 282,08 |
+| Detsember | 550 | 170 623,28 | 310,22 |
+
+**Järeldus:** Detsember oli 2024. aasta tugevaim müügikuu nii kogukäibe kui ka müügikirjete arvu poolest. Jaanuaris oli väikseim kogukäive. Oktoobris oli kõrgeim keskmine müügikirje summa (326,40 €).
+
+**2. Müük tootekategooriate kaupa – 2024**
+
+Ühendasin `sales` ja `products` tabelid `JOIN` abil ning kasutasin `GROUP BY`, `COUNT(DISTINCT)`, `SUM()`, `AVG()` ja `HAVING` funktsioone.
+
+Analüüsi kaasasin 2024. aasta tootekategooriad, mille kogukäive ületas 5 000 €.
+
+**Tulemus:**
+
+| Kategooria | Müüdud erinevaid tooteid | Kogukäive (€) | Keskmine ühikuhind (€) |
+|---|---:|---:|---:|
+| meeste_riided | 81 | 389 738,54 | 188,99 |
+| jalanõud | 71 | 379 576,38 | 219,59 |
+| naiste_riided | 68 | 342 064,71 | 198,78 |
+| aksessuaarid | 62 | 202 238,77 | 126,29 |
+| laste_riided | 68 | 156 739,62 | 85,45 |
+
+**Järeldus:** Suurima müügikäibe andsid meeste riided (389 738,54 €) ja jalanõud (379 576,38 €). Kõige väiksema käibega olid laste riided (156 739,62 €). Jalanõude kategoorias oli kõrgeim keskmine ühikuhind (219,59 €).
+
+Kõik viis kategooriat ületasid valitud `HAVING` piiri.
+
+**3. Kuised müügitrendid – CTE ja LAG()**
+
+Kasutasin CTE-d (`WITH`) kuupõhise müügikäibe arvutamiseks ja `LAG()` aknafunktsiooni eelmise kuu käibe leidmiseks.
+
+Arvutasin iga kuu müügikäibe muutuse eurodes võrreldes eelmise kuuga.
+
+**Tulemus:**
+
+| Kuu | Kogukäive (€) | Eelmise kuu käive (€) | Muutus (€) |
+|---|---:|---:|---:|
+| Jaanuar | 85 618,65 | – | – |
+| Veebruar | 90 181,83 | 85 618,65 | +4 563,18 |
+| Märts | 109 559,98 | 90 181,83 | +19 378,15 |
+| Aprill | 113 838,38 | 109 559,98 | +4 278,40 |
+| Mai | 116 843,02 | 113 838,38 | +3 004,64 |
+| Juuni | 144 558,18 | 116 843,02 | +27 715,16 |
+| Juuli | 146 800,80 | 144 558,18 | +2 242,62 |
+| August | 144 870,17 | 146 800,80 | −1 930,63 |
+| September | 109 267,47 | 144 870,17 | −35 602,70 |
+| Oktoober | 127 622,32 | 109 267,47 | +18 354,85 |
+| November | 110 573,94 | 127 622,32 | −17 048,38 |
+| Detsember | 170 623,28 | 110 573,94 | +60 049,34 |
+
+**Järeldus:** Suurim kuine käibekasv toimus detsembris (+60 049,34 €) ja suurim langus septembris (−35 602,70 €). Jaanuari muutust ei arvutatud, sest analüüs algas 2024. aasta jaanuarist.
+
+**4. Edasijõudnute osa – kuust-kuusse käibekasv protsentides**
+
+Täiendasin CTE ja `LAG()` abil koostatud trendianalüüsi, arvutades käibemuutuse protsentides. Nulliga jagamise vältimiseks kasutasin `NULLIF()` funktsiooni.
+
+**Tulemus:**
+
+| Kuu | Käibemuutus (%) |
+|---|---:|
+| Jaanuar | – |
+| Veebruar | +5,3% |
+| Märts | +21,5% |
+| Aprill | +3,9% |
+| Mai | +2,6% |
+| Juuni | +23,7% |
+| Juuli | +1,6% |
+| August | −1,3% |
+| September | −24,6% |
+| Oktoober | +16,8% |
+| November | −13,4% |
+| Detsember | +54,3% |
+
+**Järeldus:** Detsembri müügikäive suurenes novembriga võrreldes 54,3%, samas kui septembris vähenes käive augustiga võrreldes 24,6%. Need tulemused näitavad märkimisväärseid kuiseid kõikumisi, kuid ühe aasta andmete põhjal ei saa veel kinnitada püsivat hooajalisust.
+
+### Müügianalüüsi kokkuvõte juhtkonnale
+
+2024. aasta müügikäive oli kuude lõikes kõikuv: kõrgeim kuukäive saavutati detsembris (170 623,28 €) ja madalaim jaanuaris (85 618,65 €), kusjuures detsembri tulemus ületas jaanuari oma ligikaudu 99%.
+
+Kuust-kuusse võrdluses toimus suurim kasv detsembris (+60 049,34 € ehk 54,3%) ning suurim langus septembris (−35 602,70 € ehk 24,6%).
+
+Tootekategooriate lõikes andsid 2024. aastal suurima käibe meeste riided (389 738,54 €) ja jalanõud (379 576,38 €).
+
+Juhtkonnal tuleks detsembri suurema müügimahu põhjal hinnata aastalõpu laovarude ja müügivõimekuse vajadust ning uurida septembri käibelangust müügikanalite, kampaaniate ja tootekategooriate lõikes.
+
+Püsiva hooajalisuse hindamiseks on vajalik võrrelda mitme aasta sama perioodi müügitulemusi.
+
+### Kvaliteedikontroll
+
+Kontrollisin, kas 2024. aasta kogu müügikäive vastab tootekategooriate kaudu arvutatud kogukäibele.
+
+**Tulemus:**
+
+| Kontroll | Summa (€) |
+|---|---:|
+| 2024. aasta kogu müügikäive | 1 470 358,02 |
+| Tootekategooriate kogukäive | 1 470 358,02 |
+| Erinevus | 0,00 |
+
+Mõlemad summad kattusid täpselt. Kontroll ei tuvastanud müügikäibe erinevusi `sales` ja `products` tabelite ühendamisel.
+
+Lisaks kontrollisin juhendi kvaliteedinõudeid:
+
+- `GROUP BY` päringud töötasid veatult.
+- `HAVING` oli kasutatud tootekategooriate analüüsis.
+- CTE ja `LAG()` olid kasutatud müügitrendide arvutamiseks.
+- Juhtkonna kokkuvõte sisaldas andmetel põhinevaid ärilisi järeldusi.
+
+**Kvaliteedikontroll läbitud.**
+
+### Suurim üllatus
+
+2024. aasta detsembris kasvas müügikäive võrreldes novembriga **54,3%**, mis oli aasta suurim suhteline kuine kasv.
+
+Samal ajal vähenes septembri käive augustiga võrreldes **24,6%**. Nii suurte kõikumiste põhjuseid tasub täiendavalt uurida, et eristada kampaaniate, müügimahtude ja võimaliku hooajalisuse mõju.
+
+### Soovitused Kristile
+
+- **Aastalõpu müügiplaneerimine:** hinnata detsembri suurema müügimahu põhjal laovarude, personali ja müügivõimekuse vajadust.
+- **Septembri languse analüüs:** uurida müügikanalite, kampaaniate ja tootekategooriate tulemusi, et selgitada käibelanguse põhjuseid.
+- **Olulisemate kategooriate jälgimine:** pöörata tähelepanu meeste riiete ja jalanõude müügile, kuna need andsid 2024. aastal suurima käibe.
+- **Kasumlikkuse hindamine:** analüüsida lisaks müügikäibele toodete kulusid ja kasumimarginaale.
+- **Hooajalisuse kontroll:** võrrelda vähemalt mitme aasta müügitulemusi enne pikaajaliste hooajaliste otsuste tegemist.
+
+### SQL-fail
+[Helen – Sales and Marketing.sql](Helen%20-%20Sales%20and%20Marketing.sql)
+
+
 ---
 ## Kertu – Customers (Roll B)
 
