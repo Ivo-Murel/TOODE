@@ -290,3 +290,60 @@ SQL-analüüsid, tulemused, järeldused ja ühised soovitused lisame pärast ül
 - Supabase SQL Editor
 - PostgreSQL
 - GitHub
+
+---
+
+## Ivo – Inventory (Roll c)
+
+Domeen: Inventory Agregaatfunktsioonid: COUNT, SUM, AVG, MIN, MAX
+
+Mida mina tegin selle nädala jooksul:
+Minu roll - Inventory tabeli analüüs, lisaks products products + sales tabelid Analüüsisin tootekategooriaid, laoseisu ja müüdud vs laos suhteid. Kasutasin GROUP BY, HAVING ja window functions, et leida probleemsed kategooriad.
+
+Peamised leiud:
+* Kõige kõrgema keskmise hinnaga müüakse jalanõusid 214€/ühik.
+* Kõige kasumlikum toode on sünteetilised sporditossud 10,7K€
+* Andmekvaliteedi probleem (NULL väärtused): Igasse kategooriasse jagub tooteid ,mille puhul sertifikaadi info puudub täielikult.
+* Andmete järgi on laos 350 toodet neist 231 oleks vaja kohe juurde tellida.
+
+| product_id | toote_nimi | kategooria | laoseis | müüdud_kogu | käive | käive_tüki_kohta | kasum | kasum_tüki_kohta | omahind |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| 1031 | Õhuline sünteetiline sporditossud | jalanõusid | 536 | 63 | 27347 | 434.08 | 10570 | 167.77 | 266.31 |
+| 1108 | Trendikas goretex oxfordid | jalanõusid | 6221 | 65 | 23376 | 371.05 | 9569 | 147.22 | 223.83 |
+| 1223 | Praktiline kangast kõrge kontsaga kingad | jalanõusid | 396 | 68 | 21119 | 325.72 | 9034 | 132.91 | 192.81 |
+| 1293 | Boheemlaslik linane pullover | naiste_riided | 810 | 64 | 17567 | 351.33 | 8576 | 134.00 | 217.33 |
+| 1198 | Õhuline sünteetiline kõrge kontsaga kingad | jalanõusid | 7378 | 79 | 21296 | 291.72 | 8291 | 104.95 | 186.77 |
+| 1143 | Õhuline linane jakk | naiste_riided | 367 | 63 | 19393 | 311.20 | 8103 | 128.67 | 182.53 |
+| 1160 | Moodne villane nahk sandaalid | jalanõusid | 430 | 54 | 19171 | 368.67 | 7678 | 142.19 | 226.48 |
+| 1210 | Vintage tweed kampsun | meeste_riided | 2901 | 52 | 18727 | 373.00 | 7661 | 147.39 | 225.61 |
+| 1009 | Praktiline merino villane parka | meeste_riided | 564 | 59 | 19620 | 332.55 | 7423 | 125.81 | 206.74 |
+| 1069 | Klassikaline seemisnahkne jooksutossud | jalanõusid | 285 | 45 | 18118 | 406.84 | 7407 | 163.94 | 242.90 |
+
+| category | tooteid | keskmine_hind | min_hind | max_hind |
+| :--- | :--- | :--- | :--- | :--- |
+| jalanõusid | 73 | 214.10 | 58.49 | 434.08 |
+| meeste_riided | 82 | 189.91 | 48.85 | 374.54 |
+| naiste_riided | 70 | 192.58 | 32.93 | 351.33 |
+| aksessuaarid | 67 | 125.71 | 13.53 | 231.13 |
+| laste_riided | 70 | 85.30 | 22.70 | 168.82 |
+
+Kõikide kategooriate laoseis kokku on sadades tuhandetes ühikutes, keskmine laojääk ühe toote kohta 750-1200+tk, seejuures on osad tooted miinuses.
+
+Inventory tabel on “õhku täis”, laoseisud tuhandetes pea igal tootel ja negatiivse väärtusega laojäägid on andmebaasi viga.
+* Tõenäoliselt on inventory tabelisse tehtud eraldiseisvaid andmebaasi importeid või käsitsi ülekirjutamisi ja kaks tabelit ei ole omavahel kooskõlas ja andmed on vigased.
+* Inventory movements tabelist võib olla puudu näiteks välja liikumised (müük, mahakandmine) või inventory tabelit on valesti muudetud. Ideaalis peaks mõlemad numbrid olema samad.
+
+Kuna laovarud või müüginumbrid on valed, muudab see küsitavaks ka kogu ülejäänud andmete/müükide õigsuse.
+
+| kategooria | laoseis | laoseisu_väärtus_omahinnas | laoseis_päevades | müüdud_kokku_kogu_ajalugu | käive_kokku | liikumiste_neto_saldo | erinevus |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| jalanõusid | 86,352 | 13,756,779 | 29,439 | 3,737 | 774,035 | 45,452 | 40,900 |
+| meeste_riided | 101,189 | 12,651,539 | 31,282 | 4,121 | 749,799 | 45,093 | 56,096 |
+| naiste_riided | 63,970 | 8,947,625 | 22,613 | 3,604 | 686,464 | 42,983 | 20,987 |
+| aksessuaarid | 50,081 | 4,536,257 | 19,747 | 3,231 | 393,036 | 33,569 | 16,512 |
+| laste_riided | 75,193 | 4,320,705 | 25,989 | 3,686 | 305,844 | 44,115 | 31,078 |
+
+Soovitused:
+* Kontrollida laojääkide õigsust – laoseisu ja liikumiste logi erinevus on kokku ca 165 000 ühikut.
+* Kontrollida tootenimede õigsust (nt puust müts)
+* 18 tootel on öko sertifikaadid NULL väärtusega, kui sertifikaadid puuduvad, siis asendada null FALSE-ga.
