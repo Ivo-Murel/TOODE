@@ -23,3 +23,8 @@ Ivo - Inventuur SQL päringud<img width="2257" height="1890" alt="Week4_Ivo_prin
 ### Screenshot 5 – Müügikäibe kvaliteedikontroll
 
 <img width="605" height="206" alt="image" src="https://github.com/user-attachments/assets/8263d41d-2574-4c71-9797-34c4936e2868" />
+
+## Kertu – Kliendid (Roll B)
+
+(GT screenshots),[Week 4 _results_screenshots_GT.docx](https://github.com/user-attachments/files/33871850/Week.4._results_screenshots_GT.docx)
+
