@@ -4,9 +4,6 @@
 [Grupitöö esitlus](https://docs.google.com/presentation/d/1bg1lFpKq04LwAn1vqwGZc_S45lVt2TCMeZ8oVTS-EaU/edit)
 
 ---
-
-## 📊 Week 5 – Power BI visualiseerimine ja dashboard'ide koostamine
-
 ### 📌 Projekti ülevaade
 Viiendal nädalal keskendusime SQL-iga analüüsitud andmete visuaalsele esitamisele Power BI Desktop keskkonnas. Koostasime interaktiivsed juhtimislauad (*dashboards*) UrbanStyle meeskonna erinevatele osapooltele (CEO, turundus, operatsioonid).
 
