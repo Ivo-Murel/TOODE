@@ -45,13 +45,15 @@ PBI-s sai loodud:
 
 ### SQL-päringud
 
---Käive kuude lõikes
+-- Käive kuude lõikes
 SELECT DATE_TRUNC('month', sale_date) AS kuu,             
-SUM(total_price) AS tulu                     
-FROM sales GROUP BY kuu ORDER BY kuu;                         
---Tulemus 33 rida, märts-november 2025 müüke ei toimunud, parim kuu detsember 2024, kõige halvem kuu 2026 august.
+       SUM(total_price) AS tulu                     
+FROM sales 
+GROUP BY kuu 
+ORDER BY kuu;                         
+-- Tulemus 33 rida, märts-november 2025 müüke ei toimunud, parim kuu detsember 2024, kõige halvem kuu 2026 august.
 
---Müükide muutus 2026 vs 2024
+-- Müükide muutus 2026 vs 2024
 WITH yearly_sales AS (
     SELECT 
         EXTRACT(YEAR FROM sale_date) AS aasta,
@@ -71,4 +73,4 @@ SELECT
         NULLIF(MAX(CASE WHEN aasta = 2024 THEN kogutulu END), 0)) * 100, 2
     ) AS muutus_protsentides
 FROM yearly_sales;
---2026 a tulu 4K€ vs 2024 1,4miljonit, langus 99,7%
+-- 2026 a tulu 4K€ vs 2024 1,4miljonit, langus 99,7%
