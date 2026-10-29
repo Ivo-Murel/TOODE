@@ -5,9 +5,12 @@
 **DACA andmeanalüütiku programm | UrbanStyle**
 
 **Autor:** Kertu
-**Roll:** B - Marketing dashboard  
+**Roll:** B - Marketing dashboard
+
 **Projekt:** UrbanStyle – turunduse juhtlaud
+
 **Töövahendid:** PostgreSQL, Supabase, Power BI Desktop ja GitHub  
+
 **Turundusandmete periood:** 2023–2025
 
 ##  Töö eesmärk
