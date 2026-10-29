@@ -1,4 +1,4 @@
-# DACA – 5. nädal | UrbanStyle – Power BI visualiseerimine
+# 5. nädal | UrbanStyle – Power BI visualiseerimine
 
 ## Projekti ülevaade
 
