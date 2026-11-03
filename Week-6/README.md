@@ -4,6 +4,9 @@
 
 **Liikmed:** Ivo, Kertu ja Helen
 
+Viide grupitööle https://docs.google.com/presentation/d/1PUgn8d0K3lLBJAOyjhV7pqao-_f7jHXARFT1brWRcvg/edit
+
+
 ## Nädala eesmärk
 
 Kuuenda nädala grupitöö eesmärk on täiustada 5. nädalal loodud UrbanStyle'i Power BI dashboard'i ning koostada andmete põhjal selged ärilised järeldused ja soovitused.
