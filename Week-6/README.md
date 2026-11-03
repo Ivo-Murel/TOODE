@@ -29,9 +29,9 @@ Rollid kinnitame enne töö alustamist.
 
 | Liige | 6. nädala vastutus |
 |---|---|
-| Ivo | Kinnitamata |
-| Kertu | Kinnitamata |
-| Helen | Kinnitamata |
+| Ivo | Pärnu |
+| Kertu | Tallinn |
+| Helen | Tartu |
 
 ## Oodatavad tulemused
 
