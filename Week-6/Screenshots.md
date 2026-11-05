@@ -8,5 +8,6 @@
 
 
 ### Ivo – Pärnu
+<img width="2075" height="1091" alt="image" src="https://github.com/user-attachments/assets/537cc806-66a3-499f-938c-f0e53537d474" />
 
 ### Kertu – Tallinn ja e-pood
