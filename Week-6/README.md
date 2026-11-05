@@ -4,49 +4,51 @@
 
 **Liikmed:** Ivo, Kertu ja Helen
 
-Viide grupitööle https://docs.google.com/presentation/d/1PUgn8d0K3lLBJAOyjhV7pqao-_f7jHXARFT1brWRcvg/edit
-
+**Grupitöö esitlus:** [Google Slides](https://docs.google.com/presentation/d/1PUgn8d0K3lLBJAOyjhV7pqao-_f7jHXARFT1brWRcvg/edit)
 
 ## Nädala eesmärk
 
-Kuuenda nädala grupitöö eesmärk on täiustada 5. nädalal loodud UrbanStyle'i Power BI dashboard'i ning koostada andmete põhjal selged ärilised järeldused ja soovitused.
-
-Iga meeskonnaliige analüüsib oma vastutusala ning koostab selle kohta visuaalse ülevaate ja andmeloo.
-
-## Planeeritud tegevused
-
-- Täiustada olemasolevat Power BI dashboard'i.
-- Koostada asukohapõhised vaated.
-- Tuua esile olulisemad KPI-d.
-- Lisada diagrammidele annotatsioonid ja viitejooned.
-- Kirjutada iga vastutusala kohta andmelugu.
-- Koondada tulemused ühiseks äriliseks ülevaateks.
-- Dokumenteerida töö GitHubis.
+6. nädala eesmärk on täiustada UrbanStyle'i Power BI aruandeid, koostada asukohapõhised analüüsid ning esitada juhtkonnale andmetel põhinevad järeldused ja soovitused.
 
 ## Rollijaotus
 
-Rollid kinnitame enne töö alustamist.
-
-| Liige | 6. nädala vastutus |
+| Liige | Vastutus |
 |---|---|
 | Ivo | Pärnu |
 | Kertu | Tallinn |
 | Helen | Tartu |
 
-## Oodatavad tulemused
+## Tehtud töö
 
-- Asukohapõhised interaktiivsed dashboard'id
-- Iga vastutusala 3–5 peamist järeldust
-- Vähemalt 2 annotatsiooni ja 1 viitejoon iga dashboard'i kohta
-- Iga vastutusala 3–4-lauseline andmelugu
-- Meeskonna ühine koondvaade ja ärisoovitused
+- Koostatud asukohapõhised Power BI analüüsid.
+- Kasutatud müügitulu ja muid olulisi KPI-sid.
+- Täiendatud visualiseeringuid filtrite, annotatsioonide ja viitejoontega.
+- Analüüsitud müügitrende, tooteid ja kliendiandmeid.
+- Koondatud tulemusi ühisesse Google Slidesi esitlusse.
+- Dokumenteeritud liikmete tööd GitHubis.
+
+## Tulemused ja järeldused
+
+Iga meeskonnaliikme analüüsi tulemused, 3–5 peamist järeldust ja ärilised soovitused on kirjeldatud tema individuaalses dokumentatsioonis.
+
+**Tartu:** 2024. aasta müügitulu kasvas 13,4% võrreldes 2023. aastaga. Hilisemate aastate andmed on osalised.
+
+Ühised järeldused ja soovitused juhtkonnale on koondatud grupitöö esitlusse.
+
+## Tööde dokumentatsioon ja ekraanipildid
+
+- [Helen – Tartu analüüs](Helen%20-%20Tartu.md)
+- [Ühised dashboard'ide ekraanipildid](Screenshots.md)
+- [Grupitöö esitlus](https://docs.google.com/presentation/d/1PUgn8d0K3lLBJAOyjhV7pqao-_f7jHXARFT1brWRcvg/edit)
 
 ## Kasutatud töövahendid
 
-- Power BI
+- Power BI Desktop
+- PostgreSQL ja Supabase
+- Google Slides
 - GitHub
-- DACA 6. nädala grupitöö juhend
+- ChatGPT (analüüsi ja dokumentatsiooni abivahend)
 
-## Töö seis
+## Kokkuvõte
 
-Grupitöö on alustatud. Tulemused, ekraanipildid ja ühine kokkuvõte lisatakse töö käigus.
+6. nädala grupitöö keskendus andmete visualiseerimisele ja äriliste järelduste sõnastamisele. Asukohapõhised analüüsid aitavad võrrelda kaupluste tulemusi, märgata andmekvaliteedi probleeme ning toetada juhtkonna otsuseid.
