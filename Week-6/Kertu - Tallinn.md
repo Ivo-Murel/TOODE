@@ -14,7 +14,7 @@
 
 ## Projekti eesmärk
 
-Minu ülesanne oli analüüsida UrbanStyle'i Tartu kaupluse müügitulemusi ning koostada interaktiivne Power BI juhtimislaud.
+Minu ülesanne oli analüüsida UrbanStyle'i Tallinna kaupluse müügitulemusi ning koostada interaktiivne Power BI juhtimislaud.
 
 Analüüsi eesmärk oli vastata järgmistele küsimustele:
 
@@ -69,7 +69,7 @@ Koostasin Power BI Desktopis eraldi Tallinna kaupluse juhtimislaua.
 | Müügitulu kokku | 1,01 mln € |
 | Tellimuste arv | 3521 |
 | Keskmine ostusumma | 286,63 € |
-| Ärikasum | -113 000 |
+| Ärikasum | -113 000 € |
 
 ### Interaktiivsed filtrid
 
@@ -97,7 +97,7 @@ Need selgitused aitavad juhtkonnal tulemusi paremini tõlgendada.
 ### Tulemused
 UrbanStyle Tallinna poe müügitulemused on ajas kõikuvad. Tunda on tugevat sessoonsust ja müügitipud jäävad Juuli ning Detsembri kuudesse. 
 Kõige suurem kuukäive oli **2024. aasta detsembris – 64 170 €**.
-2023.  aasta jüulumüük oli madalama kogumüügiga. 
+2023.  aasta jõulumüük oli madalama kogumüügiga. 
 
 ### Järeldus
 
@@ -183,7 +183,7 @@ Vaba rahavoo tekitamiseks ja miinuse katmiseks tuleb korraldada kiire tühjendus
 ## 8. Grupitöö ja esitlus
 
 Tegutsesin 6. nädala grupitöös meeskonna **Toode** liikmena.
-Minu vastutus oli **Roll a – Tallinna kaupluse analüüs**.
+Minu vastutus oli **Roll A – Tallinna kaupluse analüüs**.
 
 ### Minu panus grupitöösse
 
