@@ -38,6 +38,8 @@ Iga meeskonnaliikme analüüsi tulemused, 3–5 peamist järeldust ja ärilised 
 ## Tööde dokumentatsioon ja ekraanipildid
 
 - [Helen – Tartu analüüs](Helen%20-%20Tartu.md)
+- [https://github.com/Ivo-Murel/TOODE/blob/main/Week-6/Kertu%20-%20Tallinn.md]
+- [https://github.com/Ivo-Murel/TOODE/blob/main/Week-6/Kertu%20-%20Veebipood.md]
 - [Ühised dashboard'ide ekraanipildid](Screenshots.md)
 - [Grupitöö esitlus](https://docs.google.com/presentation/d/1PUgn8d0K3lLBJAOyjhV7pqao-_f7jHXARFT1brWRcvg/edit)
 
