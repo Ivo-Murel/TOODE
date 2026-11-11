@@ -1,5 +1,9 @@
 # Nädal 7 – Python Pandas ja RFM-kliendisegmenteerimine
 
+## Grupitöö esitlus
+
+**Viide:** [Nädal 7 – UrbanStyle'i RFM-kliendisegmenteerimise grupitöö esitlus (Google Slides)](https://docs.google.com/presentation/d/1vbaf-APMytQiKg2gAz_WpOAedij0oYG_KPxh-iSFeSM/edit?slide=id.p#slide=id.p)
+
 ## Meeskond TOODE
 
 **Liikmed:** Ivo, Kertu ja Helen
