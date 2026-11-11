@@ -4,9 +4,6 @@
 
 **Viide:** [Nädal 7 – UrbanStyle'i RFM-kliendisegmenteerimise grupitöö esitlus (Google Slides)](https://docs.google.com/presentation/d/1vbaf-APMytQiKg2gAz_WpOAedij0oYG_KPxh-iSFeSM/edit?slide=id.p#slide=id.p)
 
-## Ivo notebook
-
-[Ivo – andmete laadimine ja puhastamine](week7_rfm_A_Ivo.ipynb)
 
 ## Meeskond TOODE
 
