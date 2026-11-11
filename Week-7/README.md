@@ -23,9 +23,9 @@ Analüüsi abil soovime välja selgitada ettevõtte väärtuslikumad kliendid, t
 
 | **Liige** | **Roll** | **Vastutus** |
 |---|---|---|
-| Ivo | A – Data Loading + Cleaning | Andmete laadimine, ühendamine ja puhastamine |
-| Helen | B – RFM Analysis | RFM-näitajate arvutamine ja kliendisegmenteerimine |
-| Kertu | C – Visualization | Visualiseerimine ja ärilised soovitused |
+| Ivo | A+b – Data Loading + Cleaning | Andmete laadimine, ühendamine ja puhastamine |
+| Helen | C – RFM Analysis | RFM-näitajate arvutamine ja kliendisegmenteerimine |
+| Kertu | D – Visualization | Visualiseerimine ja ärilised soovitused |
 
 ## Planeeritud töö
 
