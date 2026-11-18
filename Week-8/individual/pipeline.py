@@ -1,3 +1,15 @@
+# ========================================================
+# DACA - nädal 8: Python API ja automatiseerimine
+# Grupitöö - Roll D: Automatiseerimine ja Pipeline
+# Fail: pipeline.py
+#
+# Ülesanne: Automatiseerida API ELT pipeline rollide A, Bja C osade ühendamiseks ja automaatseks logimiseks. 
+#
+# Sisend: Rollid A, B  ja C väljundid. 
+#
+# Väljund: Töötav pipeline, logging fail ja output failid. 
+# ==========================================================
+
 import os
 import time
 import logging
