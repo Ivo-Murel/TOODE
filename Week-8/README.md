@@ -11,8 +11,8 @@ Nädal 8 – UrbanStyle'i Python API-d ja automatiseerimine
 | **Liige** | **Roll** | **Vastutus** |
 | :--- | :--- | :--- |
 | Ivo | A+B – API Query + Data Processing | Andmete pärimine Supabase API-st (`data_fetcher.py`) ja andmete töötlemine (`transform.py`) |
-| Kertu | C – Visualization + Saving | Andmete visualiseerimine ja eksportimine (`visualize_export.py`) |
-| Helen | D – Automation Script | Kogu pipeline'i automatiseerimine ja orkestreerimine (`pipeline.py`) |
+| Kertu | D – Automation Script | Kogu pipeline'i automatiseerimine ja orkestreerimine (`pipeline.py`) |
+| Helen | C – Visualization + Saving | Andmete visualiseerimine ja eksportimine (`visualize_export.py`) |
 
 ---
 
