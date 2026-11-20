@@ -65,5 +65,33 @@ Pythoni automatiseerimine.
 - **Unikaalsed kliendid (Unique Customers):** 661 (baasvalimis) / 2 540 (kogu puhastatud andmestikus)
 - **Keskmine tellimuse väärtus (Average Order Value):** 298,37 €
 
+## Roll C: Visualization + Saving (`visualize_export.py`)
+
+**Tehtud töö ja funktsioonid:**
+
+1. **`create_weekly_chart(df_weekly)`:**
+   - Loob Plotly abil nädalase müügitulu joondiagrammi.
+   - Kasutab töödeldud andmeid, et näidata müügitulu muutumist nädalate lõikes.
+
+2. **`create_kpi_summary(kpis)`:**
+   - Loob Plotly abil kolme põhinäitaja ülevaate.
+   - Kuvab kogumüügitulu, unikaalsete klientide arvu ja keskmise tellimuse väärtuse eraldi numbriliste näitajatena.
+
+3. **`export_results(df, output_dir, kpis)`:**
+   - Loob vajadusel `output`-kausta.
+   - Salvestab andmed CSV-failina.
+   - Salvestab müügitulu graafiku ja KPI-de ülevaate HTML-failidena.
+   - Lisab failinimedele kuupäeva.
+
+**Testimine ja tulemused:**
+
+- Testisin oma funktsioone näidisandmetega (`test_visualize.py`).
+- Kontrollisin, et CSV- ja HTML-failid tekivad `output`-kausta.
+- Avasin graafikud brauseris ja kontrollisin nende kuvamist.
+- Valminud fail `visualize_export.py` on mõeldud ühendamiseks meeskonna ühise pipeline'iga.
+
+**AI kasutus:** Kasutasin AI abi koodi kirjutamisel, Plotly funktsioonide mõistmisel ja vigade parandamisel. AI aitas leida ka selgema viisi KPI-de kuvamiseks. Testisin koodi ise ja kontrollisin tulemusi.
+
+
 *Tulemusi sai võrreldud ka eelmise nädala failidega ja need klappisid täielikult.*
 
