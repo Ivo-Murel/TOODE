@@ -1,3 +1,5 @@
+# Nädal 9 
+
 - Kandidaat oskab oma tehnilisi lahendusi põhjendada.
 - Kandidaat kontrollib andmete ja tulemuste kvaliteeti.
 - Kandidaadi GitHubi portfoolio on arusaadav ja kontrollitav.
