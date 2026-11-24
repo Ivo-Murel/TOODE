@@ -37,10 +37,9 @@ mitte tegeliku värbamisprotsessiga.
 
 | Meeskonnaliige | Roll | Vastutusvaldkond |
 |---|---|---|
-
-| Helen | B – Tehniline intervjueerija (Technical Interviewer) | Tehnilised oskused, koodi kvaliteet, GitHub ja dokumentatsioon |
-| Ivo | C – Personalijuht (People Manager) | Pehmed oskused, kommunikatsioon ja kultuuriline sobivus |
-| Kertu | A + D – Palkamisjuht (Hiring Manager) ja tiimijuht (Team Lead) | CV, LinkedIn, portfoolio, koostööoskus, iseseisvus ja arengupotentsiaal |
+| Helen | B – Tehniline intervjueerija | Tehnilised oskused, koodi kvaliteet, GitHub ja dokumentatsioon |
+| Ivo | C – Personalijuht | Pehmed oskused, suhtlemine ja kultuuriline sobivus |
+| Kertu | A + D – Palkamisjuht ja tiimijuht | CV, LinkedIn, portfoolio, koostöö, iseseisvus ja arengupotentsiaal |
 
 ## 4. Värbamisjuhendi peamised hindamisvaldkonnad
 
