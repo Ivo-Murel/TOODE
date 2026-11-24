@@ -77,7 +77,7 @@ värbamisjuhendi osa, mis sisaldab:
 
 | Meeskonnaliige | Töö | Seis |
 |---|---|---|
-| Helen | [Tehnilise intervjueerija vaade](./technical_interviewer.md) | Koostatud, ühisesse reposse lisamisel |
+| Helen | [Tehnilise intervjueerija vaade] | Koostatud, ühisesse reposse lisamisel |
 | Ivo | Personalijuhi vaade | Lisamisel |
 | Kertu | Rollipõhine värbamisjuhendi osa | Lisamisel |
 
