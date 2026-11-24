@@ -15,7 +15,7 @@ osa oma rolli vaatenurgast.
 
 ## Individuaalsed tööd
 
-- [Helen – Roll B](./Helen_Roll_B.md)
+- Helen – Roll B
 - Ivo – Roll C (lisamisel)
 - Kertu – Roll A + D (lisamisel)
 
