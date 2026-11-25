@@ -28,7 +28,7 @@ põhjendustega oma rolli vaatenurgast.
 Individuaalsed panused ühendatakse meeskonna
 ühiseks värbamisjuhendi peatükiks.
 
-## Roll C ## Lühikokkuvõte: Kandidaadi hindamine (Personalijuhi vaade)
+## Roll C Lühikokkuvõte: Kandidaadi hindamine (Personalijuhi vaade)
 
 * **Eesmärk:** Hinnata kandidaadi pehmeid oskusi ja sobivust UrbanStyle'i tiimi (EE/FI/DE kaugtöökeskkond).
 * **Rohelised lipud (tugevused):**
