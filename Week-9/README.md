@@ -85,7 +85,7 @@ värbamisjuhendi osa, mis sisaldab:
 | Meeskonnaliige | Töö | Seis |
 |---|---|---|
 | Helen | Tehnilise intervjueerija vaade | Koostatud, ühisesse reposse lisamisel |
-| Ivo | Personalijuhi vaade | Lisamisel |
+| Ivo | Personalijuhi vaade 
 | Kertu | Rollipõhine värbamisjuhendi osa | Lisamisel |
 
 ## 6. Grupitöö metoodika
