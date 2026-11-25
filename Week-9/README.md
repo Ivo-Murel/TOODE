@@ -1,4 +1,7 @@
+## SLAIDID 
+https://docs.google.com/presentation/d/1RZ-77ETqeoE3DdQyPqB1zHXauP1SCa9xQqUXN2UbVx8/edit
 
+## DOK
 
 https://docs.google.com/document/d/1JXx-YHJBB_C_Z3lAYbGtd14lTn-8qxuh/edit
 
