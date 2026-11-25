@@ -1,3 +1,7 @@
+
+
+https://docs.google.com/document/d/1JXx-YHJBB_C_Z3lAYbGtd14lTn-8qxuh/edit
+
 # Nädal 9 – Karjääri ettevalmistus: IT tööandja pilk
 
 ## Meeskond TOODE – UrbanStyle.ltd
