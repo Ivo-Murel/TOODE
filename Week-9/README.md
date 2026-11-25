@@ -3,7 +3,7 @@ https://docs.google.com/presentation/d/1RZ-77ETqeoE3DdQyPqB1zHXauP1SCa9xQqUXN2Ub
 
 ## DOK
 
-https://docs.google.com/document/d/1JXx-YHJBB_C_Z3lAYbGtd14lTn-8qxuh/edit
+[Vaata grupitööd siit](https://docs.google.com/document/d/1JXx-YHJBB_C_Z3lAYbGtd14lTn-8qxuh/edit)
 
 # Nädal 9 – Karjääri ettevalmistus: IT tööandja pilk
 
