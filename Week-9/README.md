@@ -135,7 +135,7 @@ Individuaalsed panused sisaldavad:
 |---|---|
 | Helen | [Roll B – Tehnilise intervjueerija vaade](./individual/Helen_Roll_B.md) |
 | Ivo | Roll C – Personalijuhi vaade |
-| Kertu | Roll A + D – Palkamisjuhi ja tiimijuhi vaade |
+| Kertu | [Roll A + D – Palkamisjuhi ja tiimijuhi vaade] (https://github.com/Ivo-Murel/TOODE/blob/main/Week-9/individual/Kertu_Roll_A_D.md)|
 
 [Individuaalsete tööde kaust](./individual/)
 
