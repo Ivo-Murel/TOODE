@@ -1,155 +1,202 @@
-## SLAIDID 
-https://docs.google.com/presentation/d/1RZ-77ETqeoE3DdQyPqB1zHXauP1SCa9xQqUXN2UbVx8/edit
-
-## DOK
-
-[Vaata grupitööd siit](https://docs.google.com/document/d/1JXx-YHJBB_C_Z3lAYbGtd14lTn-8qxuh/edit)
-
 # Nädal 9 – Karjääri ettevalmistus: IT tööandja pilk
 
 ## Meeskond TOODE – UrbanStyle.ltd
 
 ## 1. Nädala eesmärk
 
-Üheksanda nädala eesmärk on mõista tööandja ootusi
-andmeanalüütikule ning koostada värbamisjuhend,
-mis aitab hinnata kandidaatide tehnilisi oskusi,
-portfooliot, suhtlemisoskust ja koostöövõimet.
+Mõista tööandja ootusi nooremandmeanalüütikule ning koostada
+oskuspõhine värbamisjuhend, mis aitab UrbanStyle'i juhtidel
+leida ja hinnata sobivaid kandidaate.
 
-Kasutame eelneva kaheksa nädala jooksul omandatud
-teadmisi ja praktilisi kogemusi, et kirjeldada,
-milliseid oskusi ja omadusi tööandja alustavalt
-andmeanalüütikult ootab.
+Rakendame eelneva kaheksa nädala jooksul omandatud teadmisi
+ja praktilisi kogemusi tööandja vaatenurgast.
 
 ## 2. UrbanStyle'i ärikontekst
 
-UrbanStyle kasvab ning ettevõttel on vaja värvata
-seitse uut andmeanalüütikut:
+UrbanStyle kasvab ning ettevõttel on vaja värvata seitse uut
+andmeanalüütikut:
 
 - 5 andmeanalüütikut Eestisse (Tallinn, Tartu, Pärnu);
 - 2 kaugtööna töötavat andmeanalüütikut välismaale
   (Soome ja Saksamaa).
 
 Operations Manager Liis Koppel vajab värbamisjuhendit,
-mis aitaks ettevõtte juhtidel ära tunda tugevaid
-kandidaate ning hinnata nende sobivust ametikohale.
-
-Meeskonna ülesanne on koostada üldised ja põhjendatud
-hindamiskriteeriumid tööandja vaatenurgast.
+mis toetab ausat, ühtset ja oskuspõhist värbamisprotsessi.
 
 Tegemist on simuleeritud ettevõtte õppeprojektiga,
 mitte tegeliku värbamisprotsessiga.
 
-## 3. Meeskonnaliikmed ja rollid
+## 3. Meeskonna valitud peatükid
+
+| Peatükk | Teema | Sihtrühm |
+|---|---|---|
+| 5 | DA tööpakkumise kirjutamine | Liis Koppel – Operations Manager |
+| 6 | DA intervjuu stsenaariumite raamat | UrbanStyle'i juhatus |
+
+### Peatükk 5 – DA tööpakkumise kirjutamine
+
+Eesmärk on koostada atraktiivne, aus ja oskuspõhine
+nooremandmeanalüütiku tööpakkumine.
+
+Tööpakkumine käsitleb:
+
+- tööülesandeid ja vastutusvaldkondi;
+- tehnilisi ja professionaalseid oskusi;
+- kandidaatide oskuste tõendamist;
+- töötingimusi ja arenguvõimalusi;
+- kaugtöö võimalusi ja sisseelamist ettevõttesse.
+
+### Peatükk 6 – DA intervjuu stsenaariumite raamat
+
+Eesmärk on koostada struktureeritud intervjuu,
+mis võimaldab kandidaate hinnata ühtsete kriteeriumide alusel.
+
+Intervjuu sisaldab portfoolio tutvustamist, tehnilisi küsimusi,
+koostööoskuste hindamist ja kandidaadi küsimusi.
+
+## 4. Meeskonnaliikmed ja rollid
 
 | Meeskonnaliige | Roll | Vastutusvaldkond |
 |---|---|---|
-| Helen | B – Tehniline intervjueerija | Tehnilised oskused, koodi kvaliteet, GitHub ja dokumentatsioon |
-| Ivo | C – Personalijuht | Pehmed oskused, suhtlemine ja kultuuriline sobivus |
-| Kertu | A + D – Palkamisjuht ja tiimijuht | CV, LinkedIn, portfoolio, koostöö, iseseisvus ja arengupotentsiaal |
+| Helen | B – Tehniline intervjueerija | Tehnilised oskused, intervjuuküsimused, koodi kvaliteet, andmekvaliteet, Git ja dokumentatsioon |
+| Ivo | C – Personalijuht | Suhtlemine, pehmed oskused, koostöö ja kultuuriline sobivus |
+| Kertu | A + D – Palkamisjuht ja tiimijuht | Portfoolio, ärimõju, kandidaatide sobivus, iseseisvus ja arengupotentsiaal |
 
-## 4. Värbamisjuhendi peamised hindamisvaldkonnad
+## 5. Intervjuu ajaplaan
+
+Intervjuu kogukestus on 60 minutit.
+
+| Aeg | Tegevus | Vastutaja |
+|---|---|---|
+| 00–05 min | Sissejuhatus | Operations Manager |
+| 05–20 min | Portfoolio ja ärimõju | Hiring Manager |
+| 20–35 min | Tehniline pädevus ja vigade otsimine | Technical Interviewer |
+| 35–50 min | Koostöö, suhtlus ja iseseisvus | Team Lead |
+| 50–60 min | Kandidaadi küsimused | Kogu juhatus |
+
+## 6. Kandidaatide hindamine
+
+Hindamisel kasutatakse konkreetseid kriteeriume,
+rohelisi ja punaseid lippe ning hindamistabeleid.
 
 ### Tehnilised oskused
 
 - SQL ja andmebaaside kasutamine
-- Python ja andmete töötlemine
-- Power BI ja Plotly visualiseeringud
-- Git ja versioonihaldus
+- Python ja Pandas
+- Andmekvaliteet ja tulemuste valideerimine
 - Koodi kvaliteet ja loetavus
-- Dokumentatsioon ja tulemuste kontrollitavus
+- Git ja dokumentatsioon
+- Power BI / Plotly ja tulemuste äriline tähendus
 
 ### Professionaalsed oskused
 
-- CV ja LinkedIni profiili kvaliteet
-- Portfoolio arusaadavus ja tõenduspõhisus
+- Portfoolio kvaliteet ja tõenduspõhisus
 - Analüüsitulemuste ärilise väärtuse selgitamine
 - Probleemilahendusoskus
 - Suhtlemis- ja koostööoskus
-- Iseseisvus ja arengupotentsiaal
+- Iseseisvus ja õppimisvõime
+- Meeskonda sobivus
 
-## 5. Individuaalsed panused
+### Hindamistabelid (Scorecards)
 
-Iga meeskonnaliige koostab oma rolli vaatenurgast
-värbamisjuhendi osa, mis sisaldab:
+| Hindamistabel | Maksimaalne punktisumma |
+|---|---:|
+| Kandidaadi üldine hindamistabel | 15 |
+| Tehnilise intervjueerija hindamistabel | 15 |
+| Personalijuhi hindamistabel | 12 |
 
-- konkreetseid hindamiskriteeriume;
-- kolme rohelist lippu ehk tugeva kandidaadi tunnust;
-- kahte punast lippu ehk hoiatusmärki;
-- kriteeriumide ja lippude põhjendusi;
-- näiteid UrbanStyle'i kontekstis;
+Hindamistabelid toetavad kandidaatide hindamist erinevatest
+vaatenurkadest. Kõigi kandidaatide puhul kasutatakse samu
+hindamiskriteeriume.
+
+## 7. Individuaalsed panused
+
+Iga meeskonnaliige koostab värbamisjuhendi osa oma rolli
+vaatenurgast.
+
+Individuaalsed panused sisaldavad:
+
+- rollipõhiseid hindamiskriteeriume;
+- kolme rohelist lippu;
+- kahte punast lippu;
+- põhjendusi ja näiteid UrbanStyle'i kontekstis;
+- praktilisi soovitusi;
 - AI kasutamise kirjeldust.
 
 ### Meeskonnaliikmete tööd
 
-| Meeskonnaliige | Töö | Seis |
-|---|---|---|
-| Helen | Tehnilise intervjueerija vaade | Koostatud, ühisesse reposse lisamisel |
-| Ivo | Personalijuhi vaade 
-| Kertu | Rollipõhine värbamisjuhendi osa | Lisamisel |
+| Meeskonnaliige | Individuaalne panus |
+|---|---|
+| Helen | [Roll B – Tehnilise intervjueerija vaade](./individual/Helen_Roll_B.md) |
+| Ivo | Roll C – Personalijuhi vaade |
+| Kertu | Roll A + D – Palkamisjuhi ja tiimijuhi vaade |
 
-## 6. Grupitöö metoodika
+[Individuaalsete tööde kaust](./individual/)
+
+## 8. Grupitöö metoodika
 
 Grupitöö toimub JAGA–TEE–KOGU–ESITLE põhimõttel.
 
 | Etapp | Tegevus | Aeg |
 |---|---|---|
-| Sissejuhatus | UrbanStyle'i väljakutse ja ülesande tutvustus | 5 min |
-| JAGA | Peatüki valimine ja rollide jaotamine | 5 min |
-| TEE | Individuaalsete rollipõhiste juhendite koostamine | 40 min |
+| Sissejuhatus | UrbanStyle'i väljakutse tutvustus | 5 min |
+| JAGA | Peatükkide valimine ja rollide jaotamine | 5 min |
+| TEE | Individuaalsete rollipõhiste osade koostamine | 40 min |
 | KOGU | Individuaalsete panuste ühendamine ja süntees | 25 min |
 | ESITLE | Värbamisjuhendi tutvustamine | 10 min |
 | Kokkuvõte | Tulemuste koondamine ja kaaslaskontroll | 5 min |
 | **Kokku** | | **90 min** |
 
-## 7. Meeskonna ühine värbamisjuhend
+## 9. Meeskonna ühine värbamisjuhend
 
-Meeskonna ühine peatükk koostatakse individuaalsete
-rollide hindamiskriteeriumide põhjal.
+Ühisdokument ühendab meeskonnaliikmete panused terviklikuks
+värbamisjuhendiks.
 
-### Ühisdokumendi struktuur
+Juhend sisaldab:
 
-1. Ülevaade
-2. Hindamiskriteeriumid
-3. Konkreetsed näited UrbanStyle'i kontekstis
-4. Kolm võtmesoovitust juhile
-5. Üllatav avastus tööandja vaatenurgast
+- nooremandmeanalüütiku tööpakkumist;
+- 60-minutilist intervjuu stsenaariumi;
+- portfoolio ja ärimõju küsimusi;
+- tehnilisi intervjuuküsimusi ja oodatavaid vastuseid;
+- koostöö ja suhtlemise küsimusi;
+- kandidaatide hindamistabeleid;
+- rohelisi ja punaseid lippe;
+- soovitusi UrbanStyle'i värbamisprotsessi toetamiseks.
 
-Peatüki nimi, lõplik sisu ja ühisdokumendi link
-lisatakse pärast meeskonna tööde koondamist.
+[Meeskonna ühise töö kaust](./team/)
 
-## 8. Sünteesiküsimused
+## 10. Sünteesiküsimused
 
-Meeskonna ühise töö käigus vastame järgmistele
-küsimustele:
+Meeskonna arutelus käsitletavad küsimused:
 
-1. Mis oli kõige üllatavam – mida tööandjad
-   tegelikult hindavad?
-2. Millist soovitust annaksime Liisile
-   värbamisprotsessi parandamiseks?
-3. Milline info puudub ja mida peaksime
-   veel uurima?
+1. Mis oli kõige üllatavam – mida tööandjad tegelikult hindavad?
+2. Millist soovitust annaksime Liisile värbamisprotsessi parandamiseks?
+3. Milline info puudub ja mida peaksime veel uurima?
 
-Vastused lisatakse pärast meeskonna arutelu.
+Meeskonna ühised vastused lisatakse pärast arutelu.
 
-## 9. Oodatavad väljundid
+## 11. Repositooriumi struktuur
 
-- Individuaalsed rollipõhised värbamisjuhendid
-- Meeskonna ühine värbamisjuhendi peatükk
-- Põhjendatud kandidaatide hindamiskriteeriumid
-- Praktilised soovitused UrbanStyle'i juhtidele
-- Individuaalsed portfoolioartefaktid GitHubis
+    Week-9/
+    ├── README.md
+    ├── individual/
+    │   ├── README.md
+    │   └── Helen_Roll_B.md
+    └── team/
 
-## 10. AI kasutamine
+Kausta individual lisatakse meeskonnaliikmete rollipõhised
+panused ning kausta team meeskonna ühine värbamisjuhend.
+
+## 12. AI kasutamine
 
 AI-d kasutatakse hindamiskriteeriumide sõnastamise,
-ideede struktureerimise ja dokumentatsiooni
-vormistamise toetamiseks.
+intervjuuküsimuste koostamise, ideede struktureerimise
+ja dokumentatsiooni vormistamise toetamiseks.
 
-Iga meeskonnaliige dokumenteerib AI kasutamise
-oma individuaalses töös.
+Iga meeskonnaliige dokumenteerib AI kasutamise oma
+individuaalses töös.
 
-## 11. Kasutatud õppematerjalid
+## 13. Kasutatud õppematerjalid
 
 - Nädal 9 – IT tööandja pilk
 - Nädal 9 – Grupitöö juhend
@@ -159,12 +206,15 @@ oma individuaalses töös.
 - Portfoolio esitluse mall
 - DACA nädalate 1–8 praktilised õppeprojektid
 
-
-
 ## Kokkuvõte
 
-Nädala 9 grupitöö aitab mõista andmeanalüütiku
-värbamisprotsessi tööandja vaatenurgast ning
-rakendada omandatud teadmisi enda professionaalse
-portfoolio arendamisel ja 10. nädala lõppesitluseks
-valmistumisel.
+Meeskonna TOODE värbamisjuhendi eesmärk on toetada
+UrbanStyle'i ausat, läbipaistvat ja oskuspõhist
+värbamisprotsessi.
+
+Kandidaatide hindamisel on oluline nii tehniline pädevus
+kui ka oskus oma lahendusi põhjendada, tulemusi kontrollida,
+ärilist väärtust selgitada ja meeskonnas töötada.
+
+Grupitöö toetab ka meeskonnaliikmete professionaalse
+portfoolio arendamist ja 10. nädala lõppesitluseks valmistumist.
