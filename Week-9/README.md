@@ -11,6 +11,12 @@ leida ja hinnata sobivaid kandidaate.
 Rakendame eelneva kaheksa nädala jooksul omandatud teadmisi
 ja praktilisi kogemusi tööandja vaatenurgast.
 
+## Grupitöö slaidid
+https://docs.google.com/presentation/d/1RZ-77ETqeoE3DdQyPqB1zHXauP1SCa9xQqUXN2UbVx8/edit?slide=id.p#slide=id.p
+
+## Grupitöö dok
+https://docs.google.com/document/d/1JXx-YHJBB_C_Z3lAYbGtd14lTn-8qxuh/edit
+
 ## 2. UrbanStyle'i ärikontekst
 
 UrbanStyle kasvab ning ettevõttel on vaja värvata seitse uut
