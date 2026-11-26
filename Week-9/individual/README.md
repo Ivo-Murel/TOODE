@@ -40,7 +40,7 @@ Individuaalsed panused ühendatakse meeskonna
   * Vigade peitmine ja teiste süüdistamine.
 * **Hindamisskaala (max 12 p):** Hinnatakse 4 valdkonda (kommunikatsioon, läbipaistvus, iseseisvus, kultuuriline sobivus) 1–3 punkti skaalal.
 
-## Roll A/D Lühikokkuvõte: Kandidaadi hindamine (Värbanisjuhi/Tiimijuhi vaade)
+## Roll A/D Lühikokkuvõte: Kandidaadi hindamine (Värbamisjuhi/Tiimijuhi vaade)
 
 **Palkamisjuhi vaade** – kandidaadi tõendid ja intervjuu struktuur
 
